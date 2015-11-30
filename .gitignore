@@ -11,5 +11,4 @@ target
 .idea
 *.iml
 *.swp
-*.xml
 datanucleus.log
