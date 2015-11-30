@@ -1,4 +1,4 @@
-package com.netease.act;
+package com.netease.basara;
 
 /**
  * @author long.yl.
