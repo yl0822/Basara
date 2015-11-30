@@ -1,4 +1,4 @@
-package tools.netease.time;
+package tools.netease.basara;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -6,13 +6,13 @@ import java.util.Date;
 /**
  * @author long.yl.
  */
-public class TimeTravller {
+public class TimeBasara {
     /**
      * 时间、日期相关工具类
      * */
     public static void main(String[] args) {
         //test
-        String str1 = TimeTravller.getTimeByMillisTime(1448866427214L);
+        String str1 = TimeBasara.getTimeByMillisTime(1448866427214L);
         System.out.println(str1);
         //test
     }
