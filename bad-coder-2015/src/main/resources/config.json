@@ -1,0 +1,23 @@
+[
+  {
+    "config":
+      {
+        "configType":2,
+        "loadType":3,
+        "patchMD5":"a3654asd4we61f496841",
+        "patchURL":"url://",
+        "patchVersion":1
+      },
+    "version":"2.1.2"
+  },
+  {
+    "config":
+      {"configType":2,
+        "loadType":3,
+        "patchMD5":"swd5egrg46re498g4e964g",
+        "patchURL":"url://",
+        "patchVersion":1
+      },
+    "version":"2.1.3"
+  }
+]
