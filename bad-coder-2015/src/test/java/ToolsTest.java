@@ -1,6 +1,7 @@
 import com.alibaba.fastjson.JSON;
 import org.junit.Test;
 import tools.netease.basara.IosVersionConfigVO;
+import tools.netease.basara.UnitVO;
 
 import java.io.*;
 import java.math.BigDecimal;
@@ -38,6 +39,40 @@ public class ToolsTest {
             List<IosVersionConfigVO> list = new ArrayList<>(JSON.parseArray(sb.toString(), IosVersionConfigVO.class));
             for (IosVersionConfigVO versionConfigVO : list) {
                 System.out.println(versionConfigVO);
+            }
+        }catch (FileNotFoundException e){
+            System.out.println("文件不存在");
+        }catch (Exception e){
+            System.out.println("读取文件出错");
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void readUnitTest(){
+        String path = "D:\\gitRepo\\Basara\\bad-coder-2015\\src\\main\\resources\\unit.json";
+        File file = new File(path);
+        StringBuilder sb = new StringBuilder();
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String temp;
+            while ((temp = reader.readLine()) != null){
+                sb.append(temp);
+            }
+            String jasonUnitContent = sb.toString();
+            try {
+                UnitVO christmasUnitVO = JSON.parseObject(jasonUnitContent, UnitVO.class);
+                for (UnitVO.Unit unit1 : christmasUnitVO.getList()) {
+                    if (unit1.getId() == 7){
+                        String actId = "&fromId=5as4f654sgf456w4";
+                        unit1.setLinkUrl(unit1.getLinkUrl() + actId);
+                    }
+                }
+                jasonUnitContent = JSON.toJSONString(christmasUnitVO);
+                System.out.println(jasonUnitContent);
+            }catch (Exception e){
+                e.printStackTrace();
+                System.out.println("进入圣诞主会场解析失败");
             }
         }catch (FileNotFoundException e){
             System.out.println("文件不存在");
