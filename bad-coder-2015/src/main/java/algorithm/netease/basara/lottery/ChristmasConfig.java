@@ -35,8 +35,8 @@ public final class ChristmasConfig {
 	/** 微信接口相关 */
 	public static final String WX_ACCESS_TOKEN_URL = "https://api.weixin.qq.com/cgi-bin/token";
 	public static final String WX_TICKET_URL = "https://api.weixin.qq.com/cgi-bin/ticket/getticket";
-	public static final String WX_APP_ID = "wxcbf70cac329ba8a8";
-	public static final String WX_APP_SECRET = "ca95925da93b2962d2b3a5025174911e";
+	public static final String WX_APP_ID = "abc";
+	public static final String WX_APP_SECRET = "abc";
 	public static final String WX_GRANT_TYPE = "client_credential";
 	public static final String WX_TYPE = "jsapi";
 
