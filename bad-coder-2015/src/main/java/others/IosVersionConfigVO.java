@@ -1,4 +1,4 @@
-package tools.netease.basara;
+package others;
 
 import java.io.Serializable;
 
@@ -9,10 +9,10 @@ public class IosVersionConfigVO implements Serializable{
 
     private static final long serialVersionUID = -1230062414860419999L;
 
-    /** ios°æ±¾ºÅ */
+    /** iosï¿½æ±¾ï¿½ï¿½ */
     private String version;
 
-    /** °æ±¾¶ÔÓ¦µÄÅäÖÃ */
+    /** ï¿½æ±¾ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     private Config config;
 
     public IosVersionConfigVO() {
@@ -47,19 +47,19 @@ public class IosVersionConfigVO implements Serializable{
 
     static class Config{
 
-        //²¹¶¡°æ±¾ºÅ£¬Ã¿¸öÓ¦ÓÃ°æ±¾¶ÀÁ¢£¬´Ó1¿ªÊ¼µÝÔö
+        //ï¿½ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½Å£ï¿½Ã¿ï¿½ï¿½Ó¦ï¿½Ã°æ±¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
         private int patchVersion;
 
-        //ÅäÖÃÀàÐÍ£º0Éý¼¶²¹¶¡£¬1É¾³ý²¹¶¡
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         private int configType;
 
-        //¼ÓÔØÀàÐÍ£º0ÏÂ´ÎÆô¶¯¼ÓÔØ£¬1Á¢¼´¼ÓÔØ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½0ï¿½Â´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø£ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         private int loadType;
 
-        //²¹¶¡ÏÂÔØURL£¬¿ÉÒÔÊÇÆÕÍ¨httpÁ´½Ó
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½URLï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¨httpï¿½ï¿½ï¿½ï¿½
         private String patchURL;
 
-        //²¹¶¡MD5Öµ£¬·À´Û¸ÄÐ£Ñé
+        //ï¿½ï¿½ï¿½ï¿½MD5Öµï¿½ï¿½ï¿½ï¿½ï¿½Û¸ï¿½Ð£ï¿½ï¿½
         private String patchMD5;
 
         public int getPatchVersion() {

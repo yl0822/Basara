@@ -1,4 +1,4 @@
-package tools.netease.basara;
+package others;
 
 import java.io.Serializable;
 
