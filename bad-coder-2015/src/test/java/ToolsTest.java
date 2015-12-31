@@ -1,7 +1,7 @@
 import com.alibaba.fastjson.JSON;
 import org.junit.Test;
-import tools.netease.basara.IosVersionConfigVO;
-import tools.netease.basara.UnitVO;
+import others.IosVersionConfigVO;
+import others.UnitVO;
 
 import java.io.*;
 import java.math.BigDecimal;

@@ -7,19 +7,48 @@ import java.util.Date;
  * @author long.yl.
  */
 public class TimeBasara {
-    /**
-     * ʱ�䡢������ع�����
-     * */
-    public static void main(String[] args) {
-        //test
-        String str1 = TimeBasara.getTimeByMillisTime(1448866427214L);
-        System.out.println(str1);
-        //test
+
+    public static final SimpleDateFormat DEFAULT_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public static final SimpleDateFormat DATE_FORMAT_DATE    = new SimpleDateFormat("yyyy-MM-dd");
+
+    private TimeBasara() {
+        //禁止实例化
+        throw new AssertionError();
     }
 
-    /** ��long��ʱ���ת�������� */
-    public static String getTimeByMillisTime(long millisTime){
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return sdf.format(new Date(millisTime));
+    /**
+     * 根据时间戳获取自定义类型时间
+     */
+    public static String getTime(long timeInMillis, SimpleDateFormat dateFormat) {
+        return dateFormat.format(new Date(timeInMillis));
+    }
+
+    /**
+     * 根据时间戳获取默认日期时间类型
+     */
+    public static String getTime(long timeInMillis) {
+        return getTime(timeInMillis, DEFAULT_DATE_FORMAT);
+    }
+
+    /**
+     * 获取当前时间戳
+     */
+    public static long getCurrentTimeStamp() {
+        return System.currentTimeMillis();
+    }
+
+    /**
+     * 获取当前日期
+     */
+    public static String getCurrentTimeInString() {
+        return getTime(getCurrentTimeStamp());
+    }
+
+    /**
+     * 获取当前自定义类型日期
+     */
+    public static String getCurrentTimeInString(SimpleDateFormat dateFormat) {
+
+        return getTime(getCurrentTimeStamp(), dateFormat);
     }
 }
