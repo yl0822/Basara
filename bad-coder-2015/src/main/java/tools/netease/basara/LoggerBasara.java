@@ -38,7 +38,7 @@ public class LoggerBasara {
             sb.append(result);
         }
         sb.append(Constants.LOGGER_SPLIT);
-        sb.append(TimeBasara.getCurrentTimeInString());
+        sb.append(TimeBasara.getCurrentTimeInStringInMs());
         sb.append(Constants.LOGGER_SPLIT);
         for (String param : params) {
             message = message.replaceFirst("\\{\\}", param);
