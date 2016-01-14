@@ -31,8 +31,8 @@ public class HttpTest {
 	@Before
 	public void init() {
 		httpBasara = new HttpBasara();
-		username = "laotest12@163.com";
-		password = "qa1234";
+		username = "*****@163.com";
+		password = "*****";
 		uniqueID = "412YL4CAA1289E0089CC67D4E87F9831";
 	}
 
