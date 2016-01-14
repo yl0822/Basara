@@ -3,7 +3,7 @@ package algorithm.netease.basara;
 /**
  * @author long.yl.
  */
-public class SHA1 {
+public class Sha1Basara {
     private final int[] abcde = {
             0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476, 0xc3d2e1f0
     };
@@ -200,7 +200,7 @@ public class SHA1 {
     public static void main(String[] args) {
         String data = "asdasd";
         System.out.println(data);
-        String digest = new SHA1().getDigestOfString(data.getBytes());
+        String digest = new Sha1Basara().getDigestOfString(data.getBytes());
         System.out.println(digest);
     }
 }

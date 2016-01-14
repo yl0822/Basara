@@ -18,9 +18,6 @@ import org.apache.http.impl.client.HttpClients;
 import tools.netease.basara.LoggerBasara;
 import tools.netease.basara.MapBasara;
 
-import javax.tools.JavaCompiler;
-import javax.tools.ToolProvider;
-
 /**
  * @author long.yl.
  * @Date 2016/1/14
@@ -38,18 +35,11 @@ public class HttpBasara {
         client = HttpClients.createDefault();
     }
 
-	public static void main(String[] args) {
-		HttpBasara basara = new HttpBasara();
-        Map<String, String> requestHeadParams = new HashMap<>();
-        requestHeadParams.put("token", "389CB8CFC156ECD9384E600897EB2F6319E55051F7A5B1F0C7C51E1357E897C8AC4117F927BD2E934B5D01E1F0403C15B4C1FED00B2111DE700F552F39962707|16DD788F9898C9010D339F53DD73B253D27642CE6CF1CA7A11831B017A543036E4EDD3253746BCE7E7983D77D5F6412B");
-        basara.doPostRequest("http://m.paopao.163.com/m/v2/editAccount", requestHeadParams, null);
-//        basara.doGetRequest("http://m.paopao.163.com/m/v2/getRecmSearchKey");
-    }
-
-	private void doPostRequest(String url, Map<String, String> requestHeadParams, Map<String, String> requestBodyParams) {
-        LoggerBasara.info(this.getClass(), "http tool do POST http request...");
+	public String doPostRequest(String url, Map<String, String> requestHeadParams, Map<String, Object> requestBodyParams) {
+        String result = null;
 		try {
-			HttpPost httpPost = new HttpPost(url);
+            LoggerBasara.info(this.getClass(), "http tool do POST http request...");
+            HttpPost httpPost = new HttpPost(url);
             if (!MapBasara.isNullOrEmpty(requestHeadParams)){
                 for (String key : requestHeadParams.keySet()) {
                     httpPost.setHeader(key, requestHeadParams.get(key));
@@ -58,31 +48,54 @@ public class HttpBasara {
 			if (!MapBasara.isNullOrEmpty(requestBodyParams)) {
 				MultipartEntityBuilder builder = MultipartEntityBuilder.create();
 				for (String key : requestBodyParams.keySet()) {
-					builder.addPart(key, new StringBody(requestBodyParams.get(key), ContentType.TEXT_PLAIN));
-                    if (key.equals("avatar")){
-                        builder.addBinaryBody(key, new FileInputStream(new File("")));
-                    }
+                    //目前支持String参数的调用
+					builder.addPart(key, new StringBody((String)requestBodyParams.get(key), ContentType.TEXT_PLAIN));
 				}
 				HttpEntity entity = builder.build();
 				httpPost.setEntity(entity);
 			}
-            printResponseMainMessage(client.execute(httpPost));
+            result = printResponseAnd2StringResult(client.execute(httpPost));
 		} catch (IOException e) {
 			LoggerBasara.error(this.getClass(), e.getMessage());
 		}
+        return result;
 	}
 
-    private void doGetRequest(String url){
-        HttpGet httpGet = new HttpGet(url);
+    public String doGetRequest(String url, Map<String, String> requestParams){
+        HttpGet httpGet = new HttpGet(buildRequestUrl(url, requestParams));
+        String result = null;
         try {
             LoggerBasara.info(this.getClass(), "http tool do GET http request...");
-            printResponseMainMessage(client.execute(httpGet));
+            result = printResponseAnd2StringResult(client.execute(httpGet));
         }catch (IOException e){
             LoggerBasara.error(this.getClass(), e.getMessage());
         }
+        return result;
     }
 
-    private void printResponseMainMessage(CloseableHttpResponse response) throws IOException{
+    private String buildRequestUrl(String url, Map<String, String> requestParams){
+        StringBuilder sb = new StringBuilder(url);
+        if (!MapBasara.isNullOrEmpty(requestParams)){
+            int i = 0;
+            int size = requestParams.size() - 1;
+            for (String key : requestParams.keySet()) {
+                if (i == 0 && !url.contains("?")){
+                    sb.append("?");
+                }else if (i == 0 && url.contains("?") && url.indexOf("?") > url.indexOf("=")){
+                    sb.append("&");
+                }
+                sb.append(key).append("=").append(requestParams.get(key));
+                if (i != size){
+                    sb.append("&");
+                }
+                i++;
+            }
+        }
+        return sb.toString();
+    }
+
+    private String printResponseAnd2StringResult(CloseableHttpResponse response) throws IOException{
+        String result = null;
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent()))){
             LoggerBasara.info(this.getClass(), "statusCode: ===== {}", String.valueOf(response.getStatusLine().getStatusCode()));
             LoggerBasara.info(this.getClass(), "allHeads: ===== {}", Arrays.toString(response.getAllHeaders()));
@@ -91,7 +104,7 @@ public class HttpBasara {
             while ((tempLine = reader.readLine()) != null) {
                 sb.append(tempLine);
             }
-            LoggerBasara.info(this.getClass(), "entity: ===== {}", sb.toString());
+            LoggerBasara.info(this.getClass(), "entity: ===== {}", result = sb.toString());
             LoggerBasara.info(this.getClass(), "end of http request...");
         }catch (IOException e){
             LoggerBasara.error(this.getClass(), e.getMessage());
@@ -99,5 +112,6 @@ public class HttpBasara {
             LoggerBasara.info(this.getClass(), "close response...");
             response.close();
         }
+        return result;
     }
 }
