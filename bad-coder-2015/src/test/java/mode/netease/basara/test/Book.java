@@ -7,6 +7,16 @@ import mode.neteas.basara.SingletonBasara;
  * @Date 2015/12/31
  */
 public class Book {
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public static void main(String[] args) {
         SingletonBasara<Book> bookGenaretor = new SingletonBasara<Book>() {
             @Override

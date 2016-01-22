@@ -31,8 +31,8 @@ public class HttpTest {
 	@Before
 	public void init() {
 		httpBasara = new HttpBasara();
-		username = "*****@163.com";
-		password = "*****";
+		username = "laotest12@163.com";
+		password = "qa1234";
 		uniqueID = "412YL4CAA1289E0089CC67D4E87F9831";
 	}
 
@@ -49,7 +49,7 @@ public class HttpTest {
 
 	@Test
 	public void appAuth() throws UnsupportedEncodingException {
-		String url = "http://m.paopao.163.com/m/initApp?product=ht_client&pdtVersion=1&mac=11%253A22%253A33%253A44%253A55%253A66&deviceType=iphone&systemName=ios&systemVersion=7.0&resolution=640%252A1136&uniqueID=412YL4CAA1289E0089CC67D4E87F9831";
+		String url = "http://m2.paopao.163.com/m/initApp?product=ht_client&pdtVersion=1&mac=11%253A22%253A33%253A44%253A55%253A66&deviceType=iphone&systemName=ios&systemVersion=7.0&resolution=640%252A1136&uniqueID=412YL4CAA1289E0089CC67D4E87F9831";
 		String jsonString = httpBasara.doGetRequest(url, null);
 		if (jsonString != null) {
 			JSONObject object = JSONObject.parseObject(jsonString);
@@ -63,7 +63,7 @@ public class HttpTest {
 			Map<String, String> requestParams = new HashMap<>();
 			requestParams.put("id", id);
 			requestParams.put("params", encryptResultStr);
-			String jsonString2 = httpBasara.doGetRequest("http://m.paopao.163.com/m/v2/login", requestParams);
+			String jsonString2 = httpBasara.doGetRequest("http://m2.paopao.163.com/m/v2/login", requestParams);
 			if (jsonString2 == null) {
 				JSONObject object2 = JSONObject.parseObject(jsonString2);
 				String result2 = object2.getJSONObject("result").getString("result");

@@ -46,6 +46,7 @@ public class HttpBasara {
                 }
             }
 			if (!MapBasara.isNullOrEmpty(requestBodyParams)) {
+                MapBasara.print(requestBodyParams);
 				MultipartEntityBuilder builder = MultipartEntityBuilder.create();
 				for (String key : requestBodyParams.keySet()) {
                     //目前支持String参数的调用
@@ -76,6 +77,7 @@ public class HttpBasara {
     private String buildRequestUrl(String url, Map<String, String> requestParams){
         StringBuilder sb = new StringBuilder(url);
         if (!MapBasara.isNullOrEmpty(requestParams)){
+            MapBasara.print(requestParams);
             int i = 0;
             int size = requestParams.size() - 1;
             for (String key : requestParams.keySet()) {
