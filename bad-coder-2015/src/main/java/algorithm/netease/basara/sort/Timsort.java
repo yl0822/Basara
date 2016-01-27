@@ -19,6 +19,7 @@ public class Timsort {
             public int compare(Integer o1, Integer o2) {
                 // miss the o1 = o2 case on purpose
                 return o1 > o2 ? 1 : -1;
+                //asdasfa
             }
         });
     }
