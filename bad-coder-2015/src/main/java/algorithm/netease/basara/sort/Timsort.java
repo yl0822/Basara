@@ -16,7 +16,6 @@ public class Timsort {
             list.add(i);
             // use the native TimSort in JDK 7
         Collections.sort(list, new Comparator<Integer>() {
-            @Override
             public int compare(Integer o1, Integer o2) {
                 // miss the o1 = o2 case on purpose
                 return o1 > o2 ? 1 : -1;

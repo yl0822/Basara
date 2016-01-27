@@ -6,7 +6,11 @@
 
     <groupId>com.christmas</groupId>
     <artifactId>yl-com</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>../rabbitmq-server</module>
+    </modules>
 
     <dependencies>
         <!-- Excel解析 -->
