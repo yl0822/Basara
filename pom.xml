@@ -102,5 +102,6 @@
         <module>redis-server</module>
         <module>rabbitmq-server</module>
         <module>bad-coder-2015</module>
+        <module>good-coder-2016</module>
     </modules>
 </project>
