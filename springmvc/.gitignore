@@ -1,1 +1,3 @@
 logs
+*.sql
+jdbc.properties
