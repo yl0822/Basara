@@ -1,4 +1,5 @@
-import ch.qos.logback.classic.Logger;
+package sql;
+
 import com.basara.dao.TextPostDao;
 import com.basara.enums.PostTag;
 import com.basara.meta.TextPost;
@@ -9,12 +10,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
-import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import sql.base.BaseTest;
 
-import javax.annotation.Resource;
 import java.util.Date;
 
 /**
@@ -22,8 +20,7 @@ import java.util.Date;
  * @Date 2016/3/15
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:applicationContext-test.xml"})
-public class TextPostDaoTest {
+public class TextPostDaoTest extends BaseTest {
 
     private static org.slf4j.Logger rootLogger = LoggerFactory.getLogger(TextPostDaoTest.class);
 

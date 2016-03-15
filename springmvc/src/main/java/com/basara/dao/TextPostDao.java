@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @author long.yl.
  * @Date 2016/3/15
  */
-public interface TextPostDao extends BaseDao<TextPost>{
+public interface TextPostDao{
 
     /**
      * 这里不能返回刚刚添加的对象，所以如果业务有需求，需要和getObject一起使用

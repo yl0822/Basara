@@ -33,5 +33,11 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
+    <!--
+        作用等价于：
+        <mappers>
+            <mapper class="com.basara.dao.mapper.CloudSongMapper"/>
+        </mappers>
+    -->
     <mybatis:scan base-package="com.basara.dao"/>
 </beans>
