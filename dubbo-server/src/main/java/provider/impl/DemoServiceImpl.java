@@ -1,6 +1,5 @@
 package provider.impl;
 
-import org.springframework.stereotype.Service;
 import provider.DemoService;
 
 /**
@@ -8,7 +7,6 @@ import provider.DemoService;
  * @Date 2016/3/11
  */
 
-@Service("demoService")
 public class DemoServiceImpl implements DemoService {
     public String getServiceName() {
         return this.getClass().getSimpleName();
