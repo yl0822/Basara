@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.basara.dao.CloudSongDao">
+    <!-- 默认同名映射，不同名这如下解决 -->
+    <!--<resultMap id="result" type="com.basara.meta.CloudSong" >-->
+    <!--<id column="id" property="id" />-->
+    <!--<result column="title" property="title" />-->
+    <!--<result column="duration" property="duration" />-->
+    <!--<result column="lyrics" property="lyrics" />-->
+    <!--<result column="url" property="url" />-->
+    <!--<result column="tag" property="tag" />-->
+    <!--</resultMap>-->
+
+    <!--可重用的SQL代码段-->
+    <sql id="song_column">(singerId, title, duration, lyrics, url, tag)</sql>
+
+    <insert id="add" parameterType="com.basara.meta.CloudSong" useGeneratedKeys="true" keyProperty="id">
+        insert into TB_Content_CloudSong
+        (singerId, title, duration, lyrics, url, tag)
+        values
+        (#{singerId}, #{title}, #{duration}, #{lyrics}, #{url}, #{tag})
+    </insert>
+
+    <select id="selectById" parameterType="long" resultType="com.basara.meta.CloudSong">
+        select * from TB_Content_CloudSong where id = #{id}
+    </select>
+
+    <update id="update" parameterType="com.basara.meta.CloudSong">
+        update TB_Content_CloudSong set singerId = #{singerId}, title = #{title}, duration = #{duration},
+        lyrics = #{lyrics}, url = #{url}, tag = #{tag} where id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="long">
+        delete from TB_Content_CloudSong where id = #{id}
+    </delete>
+</mapper>

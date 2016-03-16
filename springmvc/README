@@ -1,0 +1,23 @@
+项目名称：
+    springmvc
+
+功能：
+    主要是回顾下springmvc框架的搭建流程及配置，顺便数据spring和springmvc的运行机制，
+    另外能涉及到还包括不限于：servlet、tomcat、mybatis，
+    其实这整套如果能完成，并融合进自己的知识体系中的话。
+
+模块：
+    api:对外接口（restful）
+    config:基于spring注解配置的类
+    dao:数据获取对象
+    enums:枚举类型对象
+    meta:元数据类型（与数据库表一一对应）
+    service:封装dao后形成的服务层
+
+资源文件：
+    applicationContext.xml:springIOC配置文件
+    springmvc-servlet.xml:springMVC配置文件
+    mybatis-config.xml:mybatis配置文件
+    jdbc.properties:数据库连接参数文件
+    logback.xml:日志输出配置文件
+
