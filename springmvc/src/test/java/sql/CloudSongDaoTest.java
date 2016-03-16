@@ -3,10 +3,7 @@ package sql;
 import com.basara.dao.CloudSongDao;
 import com.basara.dao.SingerDao;
 import com.basara.meta.CloudSong;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +45,7 @@ public class CloudSongDaoTest extends BaseTest{
         song.setSingerId(1);
         song.setTag(1);
         song.setUrl("www");
-        System.out.println(cloudSongDao.add(song) > 0 ? "插入成功" : "失败");
+//        System.out.println(cloudSongDao.add(song) > 0 ? "插入成功" : "失败");
+        Assert.assertEquals(1, cloudSongDao.add(song));
     }
 }

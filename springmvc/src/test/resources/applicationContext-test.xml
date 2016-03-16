@@ -8,7 +8,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <import resource="applicationContext.xml"/>
+    <import resource="config/applicationContext.xml"/>
 
-    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <!--<context:property-placeholder location="config/jdbc.properties"/>-->
 </beans>

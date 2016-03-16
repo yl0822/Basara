@@ -70,4 +70,16 @@ public class TextPost implements Serializable {
 	public void setTag(int tag) {
 		this.tag = tag;
 	}
+
+    @Override
+    public String toString() {
+        return "TextPost{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", authName='" + authName + '\'' +
+                ", createTime=" + createTime +
+                ", tag=" + tag +
+                '}';
+    }
 }

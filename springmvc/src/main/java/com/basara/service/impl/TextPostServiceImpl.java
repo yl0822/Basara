@@ -1,6 +1,9 @@
 package com.basara.service.impl;
 
+import com.basara.dao.TextPostDao;
+import com.basara.meta.TextPost;
 import com.basara.service.TextPostService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,4 +13,31 @@ import org.springframework.stereotype.Service;
 @Service("textPostService")
 public class TextPostServiceImpl implements TextPostService {
 
+    @Autowired
+    TextPostDao textPostDao;
+
+    @Override
+    public boolean addTestPost(TextPost post) {
+        return false;
+    }
+
+    @Override
+    public boolean deleteTestPostById(long id) {
+        return textPostDao.deleteObjectById(id) > 0;
+    }
+
+    @Override
+    public boolean updateTestPost(TextPost post) {
+        return false;
+    }
+
+    @Override
+    public TextPost getTestPostById(long id) {
+        return textPostDao.getObjectById(id);
+    }
+
+    @Override
+    public boolean getTestPostListByTag(int tag) {
+        return false;
+    }
 }

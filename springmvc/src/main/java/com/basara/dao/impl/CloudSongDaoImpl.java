@@ -22,7 +22,7 @@ import javax.annotation.PreDestroy;
 @Component("cloudSongDao")
 public class CloudSongDaoImpl implements CloudSongDao {
 
-    private static Logger logger = LoggerFactory.getLogger(CloudSong.class);
+    private static Logger logger = LoggerFactory.getLogger(CloudSongDaoImpl.class);
 
     SqlSession sqlSession;
 
@@ -67,6 +67,7 @@ public class CloudSongDaoImpl implements CloudSongDao {
 
     @Override
     public int deleteById() {
+        System.out.println("what the fuck!");
         return 0;
     }
 
