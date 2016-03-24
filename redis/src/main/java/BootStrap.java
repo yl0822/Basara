@@ -1,3 +1,4 @@
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import redis.clients.jedis.Jedis;
 
 import java.util.Arrays;
@@ -8,14 +9,11 @@ import java.util.Arrays;
  */
 public class BootStrap {
     public static void main(String[] args)throws Throwable{
-        Jedis jedis = new Jedis("127.0.0.1");
-        jedis.lset("total", 1, "32");
-        jedis.lset("total", 2, "22");
-        jedis.lset("total", 3, "32456");
-        jedis.lset("total", 4, "432");
-        jedis.lset("total", 5, "100");
-//        jedis.sort("total");
-        System.out.println(jedis.lpop("total"));
-        jedis.close();
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String []{"classpath:applicationContext-redis.xml"});
+        context.start();
+        //为保证服务一直开启，利用输入流的阻塞来模拟
+        System.out.println("dubbo服务启动中...");
+        System.in.read();
+        System.out.println("dubbo服务启动关闭...");
     }
 }

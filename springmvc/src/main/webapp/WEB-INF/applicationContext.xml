@@ -12,6 +12,8 @@
 
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
+    <import resource="redis-dubbo-consumer.xml"/>
+
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
         <property name="jdbcUrl" value="${jdbc.url}"/>
         <property name="driverClass" value="${jdbc.driverClassName}"/>
@@ -26,7 +28,7 @@
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <property name="configLocation" value="classpath:mybatis-conafig.xml"/>
     </bean>
 
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">

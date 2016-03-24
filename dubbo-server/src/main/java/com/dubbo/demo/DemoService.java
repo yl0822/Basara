@@ -1,4 +1,4 @@
-package provider;
+package com.dubbo.demo;
 
 /**
  * @author long.yl.
@@ -6,5 +6,5 @@ package provider;
  */
 public interface DemoService {
     String getServiceName();
-    void sayHello();
+    String sayHello();
 }

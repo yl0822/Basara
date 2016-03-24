@@ -3,6 +3,7 @@ package com.basara.service.impl;
 import com.basara.dao.TextPostDao;
 import com.basara.meta.TextPost;
 import com.basara.service.TextPostService;
+import com.redis.dc.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,9 @@ public class TextPostServiceImpl implements TextPostService {
 
     @Autowired
     TextPostDao textPostDao;
+
+    @Autowired
+    Client hashClient;
 
     @Override
     public boolean addTestPost(TextPost post) {
@@ -33,6 +37,7 @@ public class TextPostServiceImpl implements TextPostService {
 
     @Override
     public TextPost getTestPostById(long id) {
+        hashClient.getDesc();
         return textPostDao.getObjectById(id);
     }
 

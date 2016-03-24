@@ -8,13 +8,16 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @Date 2016/3/11
  */
 //@ImportResource({"classpath:config/contentProvider.xml"} )
-@Configuration
-@ComponentScan
-public class Bootstrap {
+//@Configuration
+//@ComponentScan
+//@ContextConfiguration(locations = {"classpath:applicationContext-dubbo.xml"})
+public class Provider {
     public static void main(String[] args) throws Exception{
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String []{"classpath:demoProvider.xml"});
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(new String []{"classpath:applicationContext-dubbo.xml"});
         context.start();
         //为保证服务一直开启，利用输入流的阻塞来模拟
+        System.out.println("dubbo服务启动中...");
         System.in.read();
+        System.out.println("dubbo服务启动关闭...");
     }
 }

@@ -1,6 +1,6 @@
-package provider.impl;
+package com.dubbo.demo.impl;
 
-import provider.DemoService;
+import com.dubbo.demo.DemoService;
 
 /**
  * @author long.yl.
@@ -12,7 +12,7 @@ public class DemoServiceImpl implements DemoService {
         return this.getClass().getSimpleName();
     }
 
-    public void sayHello() {
-        System.out.println("Hello world, this is my first dubbo remote proceedue calling!");
+    public String sayHello() {
+        return "Hello world, this is my first dubbo remote proceedue calling!";
     }
 }

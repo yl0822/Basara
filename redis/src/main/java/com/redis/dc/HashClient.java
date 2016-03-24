@@ -3,6 +3,7 @@ package com.redis.dc;
 import com.redis.dc.base.BaseClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
