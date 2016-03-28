@@ -19,7 +19,7 @@ import javax.annotation.PreDestroy;
  * @author long.yl.
  * @Date 2016/3/15
  */
-@Component("cloudSongDao")
+//@Component("cloudSongDao")
 public class CloudSongDaoImpl implements CloudSongDao {
 
     private static Logger logger = LoggerFactory.getLogger(CloudSongDaoImpl.class);

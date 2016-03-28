@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * @author long.yl.
  * @Date 2016/3/15
  */
-@Service("textPostService")
+//@Service("textPostService")
 public class TextPostServiceImpl implements TextPostService {
 
     @Autowired

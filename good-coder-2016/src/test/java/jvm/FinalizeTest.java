@@ -20,7 +20,7 @@ public class FinalizeTest {
 
     @Override
     protected void finalize() throws Throwable {
-        System.out.println("xxx");
+        System.out.println("不要移除我");
         super.finalize();
     }
 }
