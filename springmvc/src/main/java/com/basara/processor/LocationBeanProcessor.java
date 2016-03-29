@@ -11,15 +11,16 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class LocationBeanProcessor implements BeanPostProcessor {
+
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("do before");
-        return "before";
+        System.out.println("【处理器初始化】实例化" + beanName + "Bean之前调用...");
+        return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        System.out.println("do after");
-        return "after";
+        System.out.println("【处理器初始化】实例化" + beanName + "之后调用...");
+        return bean;
     }
 }

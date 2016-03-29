@@ -6,6 +6,7 @@ import com.basara.service.TextPostService;
 import com.redis.dc.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author long.yl.
@@ -21,6 +22,7 @@ public class TextPostServiceImpl implements TextPostService {
     Client hashClient;
 
     @Override
+    @Transactional
     public boolean addTestPost(TextPost post) {
         return false;
     }

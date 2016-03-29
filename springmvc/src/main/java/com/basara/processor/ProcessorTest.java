@@ -13,10 +13,9 @@ import org.springframework.web.context.support.XmlWebApplicationContext;
 public class ProcessorTest {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("classpath:applicationContext.xml");
-        System.out.println(context.getApplicationName());
-        System.out.println(context.getDisplayName());
-        System.out.println(context.getId());
-//        System.out.println(context.getParent().getApplicationName());
-        ((LocationBean)context.getBean(LocationBean.class)).doPrint();
+        Foo foo = context.getBean(Foo.class);
+        foo.service();
+        System.out.println("【业务处理】bar的value是" + foo.bar.getValue());
+        ((ClassPathXmlApplicationContext)context).registerShutdownHook();
     }
 }

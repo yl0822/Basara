@@ -13,6 +13,10 @@
     <!--<result column="tag" property="tag" />-->
     <!--</resultMap>-->
 
+    <parameterMap id="sad" type="sd">
+        <parameter property="sd"/>
+        <parameter property="sa"/>
+    </parameterMap>
     <!--可重用的SQL代码段-->
     <sql id="song_column">(singerId, title, duration, lyrics, url, tag)</sql>
 
