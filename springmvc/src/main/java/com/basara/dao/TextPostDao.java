@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
  * @author long.yl.
  * @Date 2016/3/15
  */
+@Component
 public interface TextPostDao{
 
     /**

@@ -12,13 +12,13 @@ import org.springframework.transaction.annotation.Transactional;
  * @author long.yl.
  * @Date 2016/3/15
  */
-//@Service("textPostService")
+@Service("textPostService")
 public class TextPostServiceImpl implements TextPostService {
 
-    @Autowired
+//    @Autowired
     TextPostDao textPostDao;
 
-    @Autowired
+//    @Autowired
     Client hashClient;
 
     @Override
