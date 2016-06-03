@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/beans/spring-aop-3.0.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
@@ -15,7 +18,7 @@
     <context:annotation-config />
 
     <!-- 启用spring组件扫描功能，并指定扫描区域（@Compnent、@Service、@Controller等等）-->
-    <context:component-scan base-package="com.basara.service"/>
+    <context:component-scan base-package="spring"/>
 
     <!-- 导入其他文件，并读取文件内容，可以通过@Value注解注入到类中（可以把spring容器看作是类容器，文件看作是值容器）-->
     <!--<context:property-placeholder location="config/jdbc.properties"/>-->

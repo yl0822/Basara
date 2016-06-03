@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+		http://www.springframework.org/schema/aop
+		http://www.springframework.org/schema/aop/spring-aop-2.0.xsd">
+
+    <!-- 增强类 -->
+    <bean id = "advisor" class="springaop.Advisor" />
+
+    <!-- 切面配置 -->
+    <bean id = "testAop" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <!-- 设置Proxy -->
+        <property name="proxyInterface" value="pattern.proxy.Translator" />
+        <!-- 设置realSubject -->
+        <property name="targetName" value="pattern.proxy.TranslatorImpl"/>
+        <!-- 设置拦截器（增强器） -->
+        <property name="interceptorNames">
+            <list>
+                <value>advisor</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>
