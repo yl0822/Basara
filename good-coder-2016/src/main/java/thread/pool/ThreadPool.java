@@ -51,6 +51,8 @@ public class ThreadPool {
 			Runnable r;
 			// 循环取出任务队列里的任务进行消费，如果没有任务，就等待任务到来。
 			while (true) {
+                //只有被synchronized修饰的方法里面才能调用wait()；wait()之后，对象锁就释放了
+                //这一点和sleep()不同，sleep()是不释放的。wait()之后必须要notify()来叫醒。
 				synchronized (queue) {
 					while (queue.isEmpty()) {
 						try {
