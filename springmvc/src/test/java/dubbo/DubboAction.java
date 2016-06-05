@@ -21,14 +21,14 @@ import org.springframework.test.context.ContextConfiguration;
 //@Configuration
 public class DubboAction {
 
-    @Autowired
-    Client hashClient;
+//    @Autowired
+//    Client hashClient;
 
     @Autowired
     DemoService demoService;
 
-    @Autowired
-    Hibernate hibernate;
+//    @Autowired
+//    Hibernate hibernate;
 
 //    static {
 //        ApplicationContext context = new FileSystemXmlApplicationContext("classpath:redis-dubbo-consumer.xml");
@@ -50,15 +50,15 @@ public class DubboAction {
         }
         Class.forName("dubbo.SpringAnnotationConfigurationTest");
         demoService = (DemoService)context.getBean("demoService");
-        hashClient = (Client)context.getBean("hashClient");
-        hibernate = (Hibernate) context.getBean("hibernate");
+//        hashClient = (Client)context.getBean("hashClient");
+//        hibernate = (Hibernate) context.getBean("hibernate");
     }
 
     public static void main(String[] args) throws Throwable{
         DubboAction da = new DubboAction();
         da.say();
         da.get();
-        da.print();
+//        da.print();
     }
 
     private void say(){
@@ -66,11 +66,11 @@ public class DubboAction {
     }
 
     private void get(){
-        System.out.println(hashClient.getDesc());
+//        System.out.println(hashClient.getDesc());
     }
 
     private void print(){
-        System.out.println(hibernate.toString());
+//        System.out.println(hibernate.toString());
     }
 
 }
