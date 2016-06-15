@@ -17,5 +17,10 @@
             <artifactId>javassist</artifactId>
             <version>3.18.2-GA</version>
         </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.8</version>
+        </dependency>
     </dependencies>
 </project>
