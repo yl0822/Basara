@@ -21,7 +21,7 @@ public class TranslatorDynamicProxyGen {
         Class[] interfaces = translatorImpl.getClass().getInterfaces();
         ClassLoader classLoader = translatorImpl.getClass().getClassLoader();
         InvocationHandler invocationHandler = new InvocationHandlerImpl(translatorImpl);
-        Object o = Proxy.newProxyInstance(classLoader, interfaces, invocationHandler);
+        Object o = Proxy.newProxyInstance(classLoader, new Class[]{Translator.class}, invocationHandler);
         Translator translator = (Translator) o;
         translator.transToChiness("invoke");
 //        ProxyUtil.genClassByte(translator.getClass(), "translatorInvocationProxy");
