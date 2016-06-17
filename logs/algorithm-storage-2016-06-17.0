@@ -1,0 +1,2 @@
+#logback.classic pattern: %d{HH:mm:ss.SSS} [%t] %-5p %c - %m%n
+#logback.classic pattern: %d{HH:mm:ss.SSS} [%t] %-5p %c - %m%n

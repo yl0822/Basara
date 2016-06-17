@@ -14,7 +14,7 @@ public class App {
 //        System.out.println(dogImp.getName());
 //        dogImp.getProperty();
 
-        System.out.println("------------------------AOP测试----------------------------");
+        System.out.println("------------------------AOP测试(单切)----------------------------");
         Annimal dog = AnimalFactory.getAnimal(DogImp.class, new AOPMethod() {
             // 这里写方法执行前的AOP切入方法
             public void before(Object proxy, Method method, Object[] args) {
