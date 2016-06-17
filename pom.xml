@@ -114,6 +114,14 @@
             <version>3.3.2</version>
         </dependency>
 
+        <!-- guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>18.0</version>
+        </dependency>
+
+
         <!-- spring -->
         <dependency>
             <groupId>org.springframework</groupId>

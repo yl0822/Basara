@@ -3,11 +3,13 @@ package com.basara.dao;
 import com.basara.meta.Singer;
 import com.basara.meta.TextPost;
 import org.apache.ibatis.annotations.*;
+import org.springframework.cache.annotation.CacheEvict;
 
 /**
  * @author long.yl.
  * @Date 2016/3/15
  */
+@CacheNamespace
 public interface SingerDao {
 
     @Insert("insert into TB_Content_Singer(name, nickName, introduce, tag)"

@@ -4,14 +4,17 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.basara.dao.CloudSongDao">
     <!-- 默认同名映射，不同名这如下解决 -->
-    <!--<resultMap id="result" type="com.basara.meta.CloudSong" >-->
-    <!--<id column="id" property="id" />-->
-    <!--<result column="title" property="title" />-->
-    <!--<result column="duration" property="duration" />-->
-    <!--<result column="lyrics" property="lyrics" />-->
-    <!--<result column="url" property="url" />-->
-    <!--<result column="tag" property="tag" />-->
-    <!--</resultMap>-->
+    <resultMap id="result" type="com.basara.meta.CloudSong" >
+        <id column="id" property="id" />
+        <result column="title" property="title" />
+        <result column="duration" property="duration" />
+        <result column="lyrics" property="lyrics" />
+        <result column="url" property="url" />
+        <result column="tag" property="tag" />
+    </resultMap>
+    <resultMap id="result2" type="com.basara.meta.Singer" >
+        <association property="result" resultMap="result" />
+    </resultMap>
 
     <parameterMap id="sad" type="sd">
         <parameter property="sd"/>
@@ -39,4 +42,8 @@
     <delete id="deleteById" parameterType="long">
         delete from TB_Content_CloudSong where id = #{id}
     </delete>
+
+    <!--缓存默认LRU（最低活跃度淘汰）， 无定时刷新， 1024个缓存对象， 只读为false（都返回对象的拷贝），缓存是和namespace绑定的，
+    相同命名空间所有语句被绑定到同一个cache上 -->
+    <cache eviction="LRU" flushInterval="12000" size="4096" readOnly="true"/>
 </mapper>

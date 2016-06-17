@@ -6,10 +6,4 @@
     <settings>
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
-
-    <mappers>
-        <!-- 这里用resource不知道为什么老是报错 -->
-        <!--<mapper resource="com/basara/dao/mapper/CloudSongMapper.xml" />-->
-        <mapper url="file:///D:/gitRepo/Basara/springmvc/src/main/java/com/basara/dao/mapper/CloudSongMapper.xml"/>
-    </mappers>
 </configuration>
