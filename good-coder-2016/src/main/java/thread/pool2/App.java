@@ -10,7 +10,7 @@ public class App {
     public static void main(String[] args) {
         ThreadPool queue = new ThreadPool(3);
         // 提交工作任务。
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 10; i++) {
             queue.execute(new thread.pool.Task(i));
         }
     }
