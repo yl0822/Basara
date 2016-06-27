@@ -1,5 +1,6 @@
 package others;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -49,6 +50,7 @@ public class UnitVO {
     }
 
     public List<Unit> getList() {
+        System.out.println("--------");
         return list;
     }
 
@@ -63,5 +65,18 @@ public class UnitVO {
             sb.append(unit).append("\n");
         }
         return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        UnitVO vo = new UnitVO();
+        List<Unit> list = new ArrayList<Unit>();
+        list.add(new Unit());
+        list.add(new Unit());
+        list.add(new Unit());
+        list.add(new Unit());
+        vo.setList(list);
+        for (Unit unit : vo.getList()) {
+            System.out.println("aaaaaaaaa");
+        }
     }
 }

@@ -44,12 +44,13 @@ public class NIOClient {
     public void listen() throws IOException {
         // 轮询访问selector
         while (true) {
+            // 线程被阻塞在该方法上，直到至少有一个而且也只会有一个通道就绪之后，方法返回就绪通道的数量
             selector.select();
             // 获得selector中选中的项的迭代器
             Iterator ite = this.selector.selectedKeys().iterator();
             while (ite.hasNext()) {
                 SelectionKey key = (SelectionKey) ite.next();
-                // 删除已选的key,以防重复处理
+                // 删除已选的key,以防重复处理（否则会一直停在就绪状态被执行）
                 ite.remove();
                 // 连接事件发生
                 if (key.isConnectable()) {
