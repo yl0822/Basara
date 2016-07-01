@@ -7,15 +7,12 @@
          metadata-complete="true">
     <!--<display-name>algorithm-rest</display-name>-->
 
-    <!--<context-param>-->
-        <!--<param-name>contextConfigLocation</param-name>-->
-        <!--<param-value>-->
-            <!--classpath*:applicationContext-web.xml-->
-            <!--classpath*:applicationContext-rest.xml-->
-            <!--classpath*:applicationContext-redis.xml-->
-            <!--/WEB-INF/applicationContext-security.xml-->
-        <!--</param-value>-->
-    <!--</context-param>-->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath*:applicationContext.xml
+        </param-value>
+    </context-param>
 
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -41,6 +38,10 @@
     <servlet>
         <servlet-name>dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath*:</param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
 

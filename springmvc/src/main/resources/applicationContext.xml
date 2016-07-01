@@ -2,38 +2,44 @@
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://mybatis.org/schema/mybatis-spring
         http://mybatis.org/schema/mybatis-spring.xsd
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd
-        http://www.springframework.org/schema/aop
-        http://www.springframework.org/schema/aop/spring-aop.xsd">
+        http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <aop:aspectj-autoproxy />
+    <context:property-placeholder location="classpath:jdbc.properties"/>
 
-    <context:annotation-config />
-    <context:component-scan base-package="com.basara"/>
-    <context:property-placeholder location="classpath:jdbc.properties" />
-    <mybatis:scan base-package="com.basara.dao" />
+    <import resource="classpath*:redis-dubbo-consumer.xml"/>
 
-    <bean id="develop" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <property name="" />
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+        <property name="jdbcUrl" value="${jdbc.url}"/>
+        <property name="driverClass" value="${jdbc.driverClassName}"/>
+        <property name="user" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="minPoolSize" value="5"/>
+        <property name="maxPoolSize" value="5"/>
+        <property name="acquireIncrement" value="1"/>
+        <property name="maxIdleTime" value="1800"/>
+        <property name="idleConnectionTestPeriod" value="180"/>
     </bean>
 
-    <!--<bean id="bar" class="com.basara.processor.Bar" scope="singleton" init-method="myinit" destroy-method="mydes">-->
-    <!--<property name="value" value="Hello World!" />-->
-    <!--</bean>-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+    </bean>
 
-    <!--<bean id="foo" class="com.basara.processor.Foo">-->
-    <!--<property name="bar" ref="bar" />-->
-    <!--</bean>-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
 
-    <!--<bean id="locationBeanFactoryProcessor" class="com.basara.processor.LocationBeanFactoryProcessor" />-->
-
-    <!--<bean id="locationBeanProcessor" class="com.basara.processor.LocationBeanProcessor"/>-->
-
+    <!--
+        作用等价于：
+        <mappers>
+            <mapper class="com.basara.dao.mapper.CloudSongMapper"/>
+        </mappers>
+    -->
+    <mybatis:scan base-package="com.basara.dao"/>
 </beans>
