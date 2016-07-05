@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.basara.mainpage.MobileLayoutConfig">
+    <insert id="add" useGeneratedKeys="true" parameterType="MobileLayoutConfig">
+        INSERT INTO TB_Content_MobileLayoutConfig(pageId, layoutOrder, icon, title, summary, titleHigh,
+        titleColor, showMore, configStatus, startTime, endTime, linkUrl)
+        values
+        (#{pageId}, #{layoutOrder}, #{icon}, #{title}, #{summary}, #{titleHigh},
+        #{titleColor}, #{showMore}, #{configStatus}, #{startTime}, #{endTime}, #{linkUrl})
+    </insert>
+
+    <select id="getLayoutByPageIdAndOrder" resultType="java.util.List">
+        SELECT * FROM TB_Content_MobileLayoutConfig WHERE pageId = #{pageId} AND layoutOrder = #{layoutOrder}
+    </select>
+
+    <select id="getLayoutConfigListByPageId" resultType="java.util.List">
+        SELECT * FROM TB_Content_MobileLayoutConfig WHERE pageId = #{layoutId} AND configStatus = #{status}
+    </select>
+</mapper>

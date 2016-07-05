@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.basara.mainpage.MobileUnitConfig">
+
+    <insert id="add" useGeneratedKeys="true" parameterType="MobileUnitConfig">
+        INSERT INTO TB_Content_MobileUnitConfig(layoutId, unitType, unitOrder, ratio, itemDivider, unitDivider,
+        unitDivider, itemPadding, sidePadding, configStatus, content)
+        values
+        (#{layoutId}, #{unitType}, #{unitOrder}, #{ratio}, #{itemDivider}, #{unitDivider},
+        #{unitDivider}, #{itemPadding}, #{sidePadding}, #{configStatus}, #{content})
+    </insert>
+
+    <insert id="addList" useGeneratedKeys="true" parameterType="java.util.List">
+        INSERT INTO TB_Content_MobileUnitConfig(layoutId, unitType, unitOrder, ratio, itemDivider, unitDivider,
+        unitDivider, itemPadding, sidePadding, configStatus, content)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.layoutId}, #{item.unitType}, #{item.unitOrder}, #{item.ratio}, #{item.itemDivider},
+            #{item.unitDivider},
+            #{item.unitDivider}, #{item.itemPadding}, #{item.sidePadding}, #{item.configStatus}, #{item.content})
+        </foreach>
+    </insert>
+
+    <delete id="deleteByLayoutId" parameterType="long">
+        DELETE FROM TB_Content_MobileUnitConfig WHERE layoutId = #{layoutId}
+    </delete>
+
+    <select id="getUnitConfigListByLayoutId" parameterType="long" resultType="java.util.List">
+        SELECT * FROM TB_Content_MobileUnitConfig WHERE layoutId = #{layoutId} AND configStatus = 1
+    </select>
+</mapper>

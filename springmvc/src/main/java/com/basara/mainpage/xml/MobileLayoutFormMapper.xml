@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.basara.mainpage.MobileLayoutForm">
+
+    <insert id="add" useGeneratedKeys="true" parameterType="MobileLayoutForm">
+        INSERT INTO TB_Content_MobileLayoutConfig(layoutId, formName)
+        values (#{layoutId}, #{formName})
+    </insert>
+
+    <delete id="deleteByLayoutId" parameterType="long">
+        DELETE FROM TB_Content_MobileLayoutForm WHERE layoutId = #{layoutId}
+    </delete>
+</mapper>

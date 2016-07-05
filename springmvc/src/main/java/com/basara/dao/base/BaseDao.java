@@ -8,7 +8,7 @@ public interface BaseDao<T> {
 
 	int add(T obj);
 
-	T getById();
+	T getById(long id);
 
 	int deleteById();
 
