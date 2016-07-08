@@ -2,13 +2,14 @@
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns="http://www.springframework.org/schema/beans"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:tx="http://www.springframework.org/schema/cache"
+       xmlns:aop="http://www.springframework.org/schema/cache"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://mybatis.org/schema/mybatis-spring
         http://mybatis.org/schema/mybatis-spring.xsd
         http://www.springframework.org/schema/context
-        http://www.springframework.org/schema/context/spring-context.xsd">
+        http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
 
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
@@ -26,21 +27,31 @@
         <property name="idleConnectionTestPeriod" value="180"/>
     </bean>
 
+    <!-- 如果这里不再添加sqlSessionTemplateBean，则默认getObject返回的是DefaultSqlSession对象 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
         <property name="mapperLocations" value="classpath*:com/basara/mainpage/xml/*Mapper.xml" />
     </bean>
 
+    <!-- 事务管理器使用的dataSource必须和sqlSessionFactoryBean保持一致 -->
+    <!-- 配置事务管理之后，如果使用注解进行使用则必须开启事务注解 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
+    <!--<tx:annotation-driven transaction-manager="transactionManager" />-->
+
     <!--
+        作用：批量注册mapperInterface，以便在dao中注入
+
         作用等价于：
         <mappers>
             <mapper class="com.basara.dao.mapper.CloudSongMapper"/>
         </mappers>
+
+        再等价于：
+        <bean id="cloudSongMapper" class="org.mybatis.spring.mapper.MapperFactoryBean" />
     -->
     <mybatis:scan base-package="com.basara.dao, com.basara.mainpage.xml"/>
 </beans>
