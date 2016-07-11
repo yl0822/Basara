@@ -25,17 +25,21 @@ public class ProxyTest {
                      */
                     @Override
                     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-
+                        Object object = null;
                         // 前置的业务逻辑操作
-                        System.out.println("---开始");
-
-                        // 调用被代理类的方法，传入参数args，得到返回
-                        Object object = method.invoke(hello, args);
+                        System.out.println("---BeforeAdvice");
+                        try {
+                            // 调用被代理类的方法，传入参数args，得到返回
+                            object = method.invoke(hello, args);
+                        }catch (Exception e){
+                            System.out.println("---ThrowAdvice");
+                        }
 
                         // 后置的业务逻辑操作
-                        System.out.println("---结束");
+                        System.out.println("---AfterAdvice");
 
                         return object;
+//                        System.out.println("---AfterReturningAdvice");
                     }
                 });
 
