@@ -12,15 +12,15 @@ import java.util.List;
 @JsonInclude(Include.NON_NULL)
 public class MobileSingleImageUnit extends MobileBaseUnit {
 
-	// 图片数据列表
-	private List<MobileSingleImageItemVO> list;
+    // 图片数据列表
+    private List<MobileSingleImageItemVO> list;
 
-	public List<MobileSingleImageItemVO> getList() {
-		return list;
-	}
+    public List<MobileSingleImageItemVO> getList() {
+        return list;
+    }
 
-	public void setList(List<MobileSingleImageItemVO> list) {
-		this.list = list;
-	}
+    public void setList(List<MobileSingleImageItemVO> list) {
+        this.list = list;
+    }
 
 }

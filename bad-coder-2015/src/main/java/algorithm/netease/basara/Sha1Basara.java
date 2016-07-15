@@ -11,6 +11,36 @@ public class Sha1Basara {
     private int[] digestInt = new int[5];
     // 计算过程中的临时数据存储数组
     private int[] tmpData = new int[80];
+
+    // 将字节转换为十六进制字符串
+    private static String byteToHexString(byte ib) {
+        char[] Digit = {
+                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C',
+                'D', 'E', 'F'
+        };
+        char[] ob = new char[2];
+        ob[0] = Digit[(ib >>> 4) & 0X0F];
+        ob[1] = Digit[ib & 0X0F];
+        String s = new String(ob);
+        return s;
+    }
+
+    // 将字节数组转换为十六进制字符串
+    private static String byteArrayToHexString(byte[] bytearray) {
+        String strDigest = "";
+        for (int i = 0; i < bytearray.length; i++) {
+            strDigest += byteToHexString(bytearray[i]);
+        }
+        return strDigest;
+    }
+
+    public static void main(String[] args) {
+        String data = "asdasd";
+        System.out.println(data);
+        String digest = new Sha1Basara().getDigestOfString(data.getBytes());
+        System.out.println(digest);
+    }
+
     // 计算sha-1摘要
     private int process_input_bytes(byte[] bytedata) {
         // 初试化常量
@@ -30,6 +60,7 @@ public class Sha1Basara {
         }
         return 20;
     }
+
     // 格式化输入字节数组格式
     private byte[] byteArrayFormatData(byte[] bytedata) {
         // 补0数量
@@ -83,18 +114,23 @@ public class Sha1Basara {
         newbyte[l++] = h8;
         return newbyte;
     }
+
     private int f1(int x, int y, int z) {
         return (x & y) | (~x & z);
     }
+
     private int f2(int x, int y, int z) {
         return x ^ y ^ z;
     }
+
     private int f3(int x, int y, int z) {
         return (x & y) | (x & z) | (y & z);
     }
+
     private int f4(int x, int y) {
         return (x << y) | x >>> (32 - y);
     }
+
     // 单元摘要计算函数
     private void encrypt() {
         for (int i = 16; i <= 79; i++) {
@@ -152,11 +188,13 @@ public class Sha1Basara {
             tmpData[n] = 0;
         }
     }
+
     // 4字节数组转换为整数
     private int byteArrayToInt(byte[] bytedata, int i) {
         return ((bytedata[i] & 0xff) << 24) | ((bytedata[i + 1] & 0xff) << 16) |
-        ((bytedata[i + 2] & 0xff) << 8) | (bytedata[i + 3] & 0xff);
+                ((bytedata[i + 2] & 0xff) << 8) | (bytedata[i + 3] & 0xff);
     }
+
     // 整数转换为4字节数组
     private void intToByteArray(int intValue, byte[] byteData, int i) {
         byteData[i] = (byte) (intValue >>> 24);
@@ -164,26 +202,7 @@ public class Sha1Basara {
         byteData[i + 2] = (byte) (intValue >>> 8);
         byteData[i + 3] = (byte) intValue;
     }
-    // 将字节转换为十六进制字符串
-    private static String byteToHexString(byte ib) {
-        char[] Digit = {
-                '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C',
-                'D', 'E', 'F'
-        };
-        char[] ob = new char[2];
-        ob[0] = Digit[(ib >>> 4) & 0X0F];
-        ob[1] = Digit[ib & 0X0F];
-        String s = new String(ob);
-        return s;
-    }
-    // 将字节数组转换为十六进制字符串
-    private static String byteArrayToHexString(byte[] bytearray) {
-        String strDigest = "";
-        for (int i = 0; i < bytearray.length; i++) {
-            strDigest += byteToHexString(bytearray[i]);
-        }
-        return strDigest;
-    }
+
     // 计算sha-1摘要，返回相应的字节数组
     public byte[] getDigestOfBytes(byte[] byteData) {
         process_input_bytes(byteData);
@@ -193,14 +212,9 @@ public class Sha1Basara {
         }
         return digest;
     }
+
     // 计算sha-1摘要，返回相应的十六进制字符串
     public String getDigestOfString(byte[] byteData) {
         return byteArrayToHexString(getDigestOfBytes(byteData));
-    }
-    public static void main(String[] args) {
-        String data = "asdasd";
-        System.out.println(data);
-        String digest = new Sha1Basara().getDigestOfString(data.getBytes());
-        System.out.println(digest);
     }
 }

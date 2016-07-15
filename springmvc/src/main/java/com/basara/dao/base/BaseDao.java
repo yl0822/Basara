@@ -6,11 +6,11 @@ package com.basara.dao.base;
  */
 public interface BaseDao<T> {
 
-	int add(T obj);
+    int add(T obj);
 
-	T getById(long id);
+    T getById(long id);
 
-	int deleteById();
+    int deleteById();
 
-	int update(T obj);
+    int update(T obj);
 }

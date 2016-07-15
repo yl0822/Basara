@@ -10,7 +10,7 @@ public class TimeBasara {
 
     public static final SimpleDateFormat DEFAULT_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     public static final SimpleDateFormat DATE_FORMAT_MICROSECOND = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-    public static final SimpleDateFormat DATE_FORMAT_DATE    = new SimpleDateFormat("yyyy-MM-dd");
+    public static final SimpleDateFormat DATE_FORMAT_DATE = new SimpleDateFormat("yyyy-MM-dd");
 
     private TimeBasara() {
         //禁止实例化

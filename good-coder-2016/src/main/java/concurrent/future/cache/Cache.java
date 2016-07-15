@@ -8,46 +8,46 @@ import java.util.concurrent.*;
  */
 public class Cache<K, V> {
 
-	ConcurrentMap map = new ConcurrentHashMap();
+    ConcurrentMap map = new ConcurrentHashMap();
 
-	Executor executor = Executors.newFixedThreadPool(8);
+    Executor executor = Executors.newFixedThreadPool(8);
 
-	public V get(final K key) {
+    public V get(final K key) {
 
-		FutureTask f = (FutureTask) map.get(key);
+        FutureTask f = (FutureTask) map.get(key);
 
-		if (f == null) {
+        if (f == null) {
 
-			Callable c = new Callable() {
+            Callable c = new Callable() {
 
-				public V call() {
+                public V call() {
 
-					// return value associated with key
-					return null;
+                    // return value associated with key
+                    return null;
 
-				}
+                }
 
-			};
+            };
 
-			f = new FutureTask(c);
+            f = new FutureTask(c);
 
-			FutureTask old = (FutureTask) map.putIfAbsent(key, f);
+            FutureTask old = (FutureTask) map.putIfAbsent(key, f);
 
-			if (old == null)
+            if (old == null)
 
-				executor.execute(f);
+                executor.execute(f);
 
-			else
+            else
 
-				f = old;
+                f = old;
 
-		}
+        }
 
-		try {
-			return (V) f.get();
-		} catch (Exception e) {
+        try {
+            return (V) f.get();
+        } catch (Exception e) {
 
-		}
-		return null;
-	}
+        }
+        return null;
+    }
 }

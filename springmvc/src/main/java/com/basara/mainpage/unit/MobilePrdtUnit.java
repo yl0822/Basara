@@ -12,15 +12,15 @@ import java.util.List;
 @JsonInclude(Include.NON_NULL)
 public class MobilePrdtUnit extends MobileBaseUnit {
 
-	// 商品数据列表
-	private List<MobilePrdtItemVO> list;
+    // 商品数据列表
+    private List<MobilePrdtItemVO> list;
 
-	public List<MobilePrdtItemVO> getList() {
-		return list;
-	}
+    public List<MobilePrdtItemVO> getList() {
+        return list;
+    }
 
-	public void setList(List<MobilePrdtItemVO> list) {
-		this.list = list;
-	}
+    public void setList(List<MobilePrdtItemVO> list) {
+        this.list = list;
+    }
 
 }

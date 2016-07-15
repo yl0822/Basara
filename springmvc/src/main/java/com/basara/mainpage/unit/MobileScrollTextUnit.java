@@ -12,26 +12,26 @@ import java.util.List;
 @JsonInclude(Include.NON_NULL)
 public class MobileScrollTextUnit extends MobileBaseUnit {
 
-	// 图标Url
-	private String icon;
+    // 图标Url
+    private String icon;
 
-	// 文本列表
-	private List<MobileKeyPairVO> textList;
+    // 文本列表
+    private List<MobileKeyPairVO> textList;
 
-	public List<MobileKeyPairVO> getTextList() {
-		return textList;
-	}
+    public List<MobileKeyPairVO> getTextList() {
+        return textList;
+    }
 
-	public void setTextList(List<MobileKeyPairVO> textList) {
-		this.textList = textList;
-	}
+    public void setTextList(List<MobileKeyPairVO> textList) {
+        this.textList = textList;
+    }
 
-	public String getIcon() {
-		return icon;
-	}
+    public String getIcon() {
+        return icon;
+    }
 
-	public void setIcon(String icon) {
-		this.icon = icon;
-	}
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
 
 }

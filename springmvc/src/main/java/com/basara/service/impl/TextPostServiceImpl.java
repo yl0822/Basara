@@ -4,7 +4,6 @@ import com.basara.dao.TextPostDao;
 import com.basara.meta.TextPost;
 import com.basara.service.TextPostService;
 import com.redis.dc.Client;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,10 +14,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Service("textPostService")
 public class TextPostServiceImpl implements TextPostService {
 
-//    @Autowired
+    //    @Autowired
     TextPostDao textPostDao;
 
-//    @Autowired
+    //    @Autowired
     Client hashClient;
 
     @Override

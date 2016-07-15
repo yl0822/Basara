@@ -3,7 +3,6 @@ package algorithm.netease.basara.test;
 import mode.netease.basara.test.Book;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -22,7 +21,7 @@ public class BootStrap {
         System.out.println(stringList.get(0).getName());
     }
 
-    public void changeList(List<Book> stringList){
+    public void changeList(List<Book> stringList) {
         for (Book book : stringList) {
             book.setName("asc__sd");
         }

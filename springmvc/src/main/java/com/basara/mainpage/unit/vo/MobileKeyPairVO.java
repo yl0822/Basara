@@ -8,28 +8,28 @@ import java.io.Serializable;
 @JsonInclude(Include.NON_NULL)
 public class MobileKeyPairVO implements Serializable {
 
-	private static final long serialVersionUID = 7803477082604287969L;
+    private static final long serialVersionUID = 7803477082604287969L;
 
-	// id(通用，所以对应String)
-	private String id;
+    // id(通用，所以对应String)
+    private String id;
 
-	// 名称,对应描述
-	private String name;
+    // 名称,对应描述
+    private String name;
 
-	public String getId() {
-		return id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
 }

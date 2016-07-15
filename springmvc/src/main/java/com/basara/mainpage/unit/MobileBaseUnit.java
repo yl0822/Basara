@@ -8,6 +8,6 @@ import java.io.Serializable;
 
 public class MobileBaseUnit implements Serializable {
 
-	private static final long serialVersionUID = 995687234739143983L;
+    private static final long serialVersionUID = 995687234739143983L;
 
 }

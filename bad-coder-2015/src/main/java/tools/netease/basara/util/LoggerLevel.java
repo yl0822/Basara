@@ -13,16 +13,16 @@ public enum LoggerLevel {
     private int value;
     private String desc;
 
-    private LoggerLevel(int value, String desc){
+    private LoggerLevel(int value, String desc) {
         this.value = value;
         this.desc = desc;
     }
 
-    public int getValue(){
+    public int getValue() {
         return value;
     }
 
-    public String getDesc(){
+    public String getDesc() {
         return desc;
     }
 }

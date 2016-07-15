@@ -25,7 +25,6 @@ public class HexStringBasara {
     }
 
     /**
-     *
      * 十六进制转换字符串
      */
 
@@ -83,7 +82,7 @@ public class HexStringBasara {
     }
 
     /**
-     *String的字符串转换成unicode的String
+     * String的字符串转换成unicode的String
      */
     public static String str2Unicode(String strText) throws Exception {
         char c;
@@ -105,7 +104,7 @@ public class HexStringBasara {
     }
 
     /**
-     *unicode的String转换成String的字符串
+     * unicode的String转换成String的字符串
      */
     public static String unicode2Str(String hex) {
         int t = hex.length() / 6;

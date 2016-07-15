@@ -10,5 +10,5 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface MobileLayoutFormMapper extends BaseMapper<MobileLayoutForm> {
 
-	int deleteByLayoutId(@Param("layoutId") long layoutId);
+    int deleteByLayoutId(@Param("layoutId") long layoutId);
 }

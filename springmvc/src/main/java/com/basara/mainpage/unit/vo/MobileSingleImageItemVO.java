@@ -11,39 +11,39 @@ import java.io.Serializable;
 @JsonInclude(Include.NON_NULL)
 public class MobileSingleImageItemVO implements Serializable {
 
-	private static final long serialVersionUID = 2214723050002899357L;
+    private static final long serialVersionUID = 2214723050002899357L;
 
-	// id
-	private String id;
+    // id
+    private String id;
 
-	// 图片链接
-	private String imgUrl;
+    // 图片链接
+    private String imgUrl;
 
-	// 跳转链接
-	private String linkUrl;
+    // 跳转链接
+    private String linkUrl;
 
-	public String getId() {
-		return id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getImgUrl() {
-		return imgUrl;
-	}
+    public String getImgUrl() {
+        return imgUrl;
+    }
 
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
-	}
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
 
-	public String getLinkUrl() {
-		return linkUrl;
-	}
+    public String getLinkUrl() {
+        return linkUrl;
+    }
 
-	public void setLinkUrl(String linkUrl) {
-		this.linkUrl = linkUrl;
-	}
+    public void setLinkUrl(String linkUrl) {
+        this.linkUrl = linkUrl;
+    }
 
 }

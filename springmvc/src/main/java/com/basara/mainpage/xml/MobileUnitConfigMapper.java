@@ -14,13 +14,13 @@ import java.util.List;
  */
 public interface MobileUnitConfigMapper extends BaseMapper<MobileUnitConfig> {
 
-	/**
-	 * 插入多条记录
-	 */
-	int addList(List<MobileUnitConfigDTO> list);
+    /**
+     * 插入多条记录
+     */
+    int addList(List<MobileUnitConfigDTO> list);
 
-	int deleteByLayoutId(@Param("layoutId") long layoutId);
+    int deleteByLayoutId(@Param("layoutId") long layoutId);
 
-	@Select("SELECT * FROM TB_Mobile_UnitConfig WHERE layoutId = #{layoutId} AND configStatus = 1")
-	List<MobileUnitConfig> getUnitConfigListByLayoutId(@Param("layoutId") long layoutId);
+    @Select("SELECT * FROM TB_Mobile_UnitConfig WHERE layoutId = #{layoutId} AND configStatus = 1")
+    List<MobileUnitConfig> getUnitConfigListByLayoutId(@Param("layoutId") long layoutId);
 }

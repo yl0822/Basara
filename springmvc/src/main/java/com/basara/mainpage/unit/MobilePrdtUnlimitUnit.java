@@ -12,48 +12,48 @@ import java.util.List;
 @JsonInclude(Include.NON_NULL)
 public class MobilePrdtUnlimitUnit extends MobileBaseUnit {
 
-	// 总数
-	private int sum;
+    // 总数
+    private int sum;
 
-	// 一屏水平放置几个item
-	private int size;
+    // 一屏水平放置几个item
+    private int size;
 
-	// 版面id
-	private String layoutIndex;
+    // 版面id
+    private String layoutIndex;
 
-	// 商品数据列表
-	private List<MobilePrdtItemVO> list;
+    // 商品数据列表
+    private List<MobilePrdtItemVO> list;
 
-	public int getSum() {
-		return sum;
-	}
+    public int getSum() {
+        return sum;
+    }
 
-	public void setSum(int sum) {
-		this.sum = sum;
-	}
+    public void setSum(int sum) {
+        this.sum = sum;
+    }
 
-	public List<MobilePrdtItemVO> getList() {
-		return list;
-	}
+    public List<MobilePrdtItemVO> getList() {
+        return list;
+    }
 
-	public void setList(List<MobilePrdtItemVO> list) {
-		this.list = list;
-	}
+    public void setList(List<MobilePrdtItemVO> list) {
+        this.list = list;
+    }
 
-	public String getLayoutIndex() {
-		return layoutIndex;
-	}
+    public String getLayoutIndex() {
+        return layoutIndex;
+    }
 
-	public void setLayoutIndex(String layoutIndex) {
-		this.layoutIndex = layoutIndex;
-	}
+    public void setLayoutIndex(String layoutIndex) {
+        this.layoutIndex = layoutIndex;
+    }
 
-	public int getSize() {
-		return size;
-	}
+    public int getSize() {
+        return size;
+    }
 
-	public void setSize(int size) {
-		this.size = size;
-	}
+    public void setSize(int size) {
+        this.size = size;
+    }
 
 }

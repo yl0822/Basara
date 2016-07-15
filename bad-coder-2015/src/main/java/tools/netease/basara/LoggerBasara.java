@@ -9,32 +9,39 @@ import tools.netease.basara.util.LoggerLevel;
  */
 public class LoggerBasara {
 
-    public static void info(Class clazz, String message, String... params){
+    public static void info(Class clazz, String message, String... params) {
         System.out.println(packMessage(clazz, LoggerLevel.INFO, message, params));
     }
 
-    public static void debug(Class clazz, String message, String... params){
+    public static void debug(Class clazz, String message, String... params) {
         System.out.println(packMessage(clazz, LoggerLevel.DEBUG, message, params));
     }
 
-    public static void error(Class clazz, String message, String... params){
+    public static void error(Class clazz, String message, String... params) {
         System.out.println(packMessage(clazz, LoggerLevel.ERROR, message, params));
     }
 
-    private static String packMessage(Class clazz, LoggerLevel level, String message, String... params){
+    private static String packMessage(Class clazz, LoggerLevel level, String message, String... params) {
         StringBuilder sb = new StringBuilder(clazz.getName());
         sb.append(Constants.LOGGER_SPLIT);
         String result = null;
         boolean isLevel = Constants.LOGGER_LEVEL == level || Constants.LOGGER_LEVEL == LoggerLevel.ALL;
-        switch (level){
-            case INFO:result = isLevel ? "INFO" : "";break;
-            case DEBUG:result = isLevel ? "DEBUG" : "";break;
-            case ERROR:result = isLevel ? "ERROR" : "";break;
-            default:break;
+        switch (level) {
+            case INFO:
+                result = isLevel ? "INFO" : "";
+                break;
+            case DEBUG:
+                result = isLevel ? "DEBUG" : "";
+                break;
+            case ERROR:
+                result = isLevel ? "ERROR" : "";
+                break;
+            default:
+                break;
         }
-        if (StringBasara.isEmpty(result)){
+        if (StringBasara.isEmpty(result)) {
             return "";
-        }else {
+        } else {
             sb.append(result);
         }
         sb.append(Constants.LOGGER_SPLIT);

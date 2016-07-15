@@ -5,13 +5,13 @@ package com.basara.mainpage.unit;
  */
 public class MobileDividerUnit extends MobileBaseUnit {
 
-	private String height;
+    private String height;
 
-	public String getHeight() {
-		return height;
-	}
+    public String getHeight() {
+        return height;
+    }
 
-	public void setHeight(String height) {
-		this.height = height;
-	}
+    public void setHeight(String height) {
+        this.height = height;
+    }
 }

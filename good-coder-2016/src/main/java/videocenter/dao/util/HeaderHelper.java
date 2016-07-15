@@ -1,26 +1,26 @@
 package videocenter.dao.util;
 
+import org.apache.http.client.methods.HttpPost;
+
 import java.util.Date;
 import java.util.UUID;
-
-import org.apache.http.client.methods.HttpPost;
 
 /**
  * @author long.yl.
  * @Date 2016/5/9
  */
 public class HeaderHelper {
-	public static void addHeader(HttpPost httpPost) {
-		String nonce = UUID.randomUUID().toString();
-		String curTime = String.valueOf((new Date()).getTime() / 1000L);
-		// ²Î¿¼ ¼ÆËãCheckSumµÄjava´úÂë
-		String checkSum = CheckSumBuilder.getCheckSum(Constants.APPSECRET, nonce, curTime);
+    public static void addHeader(HttpPost httpPost) {
+        String nonce = UUID.randomUUID().toString();
+        String curTime = String.valueOf((new Date()).getTime() / 1000L);
+        // ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ï¿½CheckSumï¿½ï¿½javaï¿½ï¿½ï¿½ï¿½
+        String checkSum = CheckSumBuilder.getCheckSum(Constants.APPSECRET, nonce, curTime);
 
-		// ÉèÖÃÇëÇóµÄheader
-		httpPost.addHeader("AppKey", Constants.APPKEY);
-		httpPost.addHeader("Nonce", nonce);
-		httpPost.addHeader("CurTime", curTime);
-		httpPost.addHeader("CheckSum", checkSum);
-		httpPost.addHeader("Content-Type", "application/json;charset=utf-8");
-	}
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½header
+        httpPost.addHeader("AppKey", Constants.APPKEY);
+        httpPost.addHeader("Nonce", nonce);
+        httpPost.addHeader("CurTime", curTime);
+        httpPost.addHeader("CheckSum", checkSum);
+        httpPost.addHeader("Content-Type", "application/json;charset=utf-8");
+    }
 }

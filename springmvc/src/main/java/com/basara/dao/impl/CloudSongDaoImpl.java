@@ -1,7 +1,6 @@
 package com.basara.dao.impl;
 
 import com.basara.dao.CloudSongDao;
-import com.basara.dao.base.BaseDao;
 import com.basara.meta.CloudSong;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -11,7 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -33,23 +31,23 @@ public class CloudSongDaoImpl implements CloudSongDao {
     SqlSessionFactoryBean sqlSessionFactory;
 
     @PostConstruct
-    public void initSession(){
-        if (sqlSessionFactory == null){
+    public void initSession() {
+        if (sqlSessionFactory == null) {
             logger.error("无法从IOC容器中获取sqlSessionFactoryBean");
-        }else {
+        } else {
             try {
                 SqlSessionFactory factory = sqlSessionFactory.getObject();
                 logger.info("初始化并打开mybatis持有的的jdbc连接...");
                 sqlSession = factory.openSession();
-            }catch (Exception e){
+            } catch (Exception e) {
                 logger.error(e.getMessage());
             }
         }
     }
 
     @PreDestroy
-    public void destroySession(){
-        if (sqlSession != null){
+    public void destroySession() {
+        if (sqlSession != null) {
             logger.info("销毁mybatis持有的的jdbc连接...");
             sqlSession.close();
         }
@@ -66,7 +64,7 @@ public class CloudSongDaoImpl implements CloudSongDao {
     @Override
     public CloudSong getById(long id) {
 //        sqlSession.select("select * from TB_Content_Song where id = ?", id);
-        if (id == 1){
+        if (id == 1) {
             CloudSong song = new CloudSong();
             song.setDuration(11);
             song.setId(1);

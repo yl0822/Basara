@@ -8,55 +8,55 @@ import videocenter.model.base.BaseResponse;
  */
 public class VideoUploadResponse extends BaseResponse {
 
-	private static final long serialVersionUID = 6830573362707815780L;
+    private static final long serialVersionUID = 6830573362707815780L;
 
-	private int code;
+    private int code;
 
-	private String xNosToekn;
+    private String xNosToekn;
 
-	private String bucket;
+    private String bucket;
 
-	private String object;
+    private String object;
 
-	private String msg;
+    private String msg;
 
-	public int getCode() {
-		return code;
-	}
+    public int getCode() {
+        return code;
+    }
 
-	public void setCode(int code) {
-		this.code = code;
-	}
+    public void setCode(int code) {
+        this.code = code;
+    }
 
-	public String getxNosToekn() {
-		return xNosToekn;
-	}
+    public String getxNosToekn() {
+        return xNosToekn;
+    }
 
-	public void setxNosToekn(String xNosToekn) {
-		this.xNosToekn = xNosToekn;
-	}
+    public void setxNosToekn(String xNosToekn) {
+        this.xNosToekn = xNosToekn;
+    }
 
-	public String getBucket() {
-		return bucket;
-	}
+    public String getBucket() {
+        return bucket;
+    }
 
-	public void setBucket(String bucket) {
-		this.bucket = bucket;
-	}
+    public void setBucket(String bucket) {
+        this.bucket = bucket;
+    }
 
-	public String getObject() {
-		return object;
-	}
+    public String getObject() {
+        return object;
+    }
 
-	public void setObject(String object) {
-		this.object = object;
-	}
+    public void setObject(String object) {
+        this.object = object;
+    }
 
-	public String getMsg() {
-		return msg;
-	}
+    public String getMsg() {
+        return msg;
+    }
 
-	public void setMsg(String msg) {
-		this.msg = msg;
-	}
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
 }
