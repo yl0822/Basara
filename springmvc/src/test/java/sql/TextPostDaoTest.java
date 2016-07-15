@@ -28,22 +28,22 @@ public class TextPostDaoTest extends BaseTest {
     TextPostDao textPostDao;
 
     @BeforeClass //必须是static的，因为这个会在类实列化之前调用
-    public static void beforClass(){
+    public static void beforClass() {
         rootLogger.info("这里可以做一些类初始化之前的操作...........");
     }
 
     @Before
-    public void befor(){
+    public void befor() {
         rootLogger.info("这里可以做一些初始化操作...........");
     }
 
     @After
-    public void after(){
+    public void after() {
         rootLogger.info("这里可以做一些资源关闭操作...........");
     }
 
     @Test
-    public void insert(){
+    public void insert() {
         TextPost post = new TextPost();
         post.setTitle("两会释放明确用人信号：这3种官员将被重用！");
         post.setContent("心提示：人民日报：有老少边穷地区任职经历的讲真话的改革促进派党员干部将会被重用。\n" +
@@ -122,18 +122,18 @@ public class TextPostDaoTest extends BaseTest {
     }
 
     @Test
-    public void getById(){
+    public void getById() {
         TextPost post = textPostDao.getObjectById(2);
         rootLogger.info(post.getTitle());
     }
 
     @Test
-    public void deleteById(){
+    public void deleteById() {
         System.out.println(textPostDao.deleteObjectById(2));
     }
 
     @Test
-    public void update(){
+    public void update() {
         TextPost post = textPostDao.getObjectById(3);
         post.setAuthName("yanglong");
         System.out.println(textPostDao.updateTitle(post));

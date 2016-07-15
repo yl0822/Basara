@@ -6,17 +6,10 @@ package effectivejava;/**
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Set;
 
 public class ExceptionFaker extends Application {
-    static class FakerException extends Exception{
-
-    }
-
     public static void main(String[] args) {
         launch(args);
     }
@@ -41,5 +34,9 @@ public class ExceptionFaker extends Application {
 //                map.put("b", "ccc");
 
         }
+    }
+
+    static class FakerException extends Exception {
+
     }
 }

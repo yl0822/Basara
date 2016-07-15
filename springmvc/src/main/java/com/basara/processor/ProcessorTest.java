@@ -2,8 +2,6 @@ package com.basara.processor;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.web.context.support.XmlWebApplicationContext;
 
 /**
  * Created by Larry .Yang
@@ -16,6 +14,6 @@ public class ProcessorTest {
         Foo foo = context.getBean(Foo.class);
         foo.service();
         System.out.println("【业务处理】bar的value是" + foo.bar.getValue());
-        ((ClassPathXmlApplicationContext)context).registerShutdownHook();
+        ((ClassPathXmlApplicationContext) context).registerShutdownHook();
     }
 }

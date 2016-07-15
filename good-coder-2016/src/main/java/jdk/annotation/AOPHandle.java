@@ -7,14 +7,16 @@ import java.lang.reflect.Method;
  * @author long.yl.
  * @Date 2016/6/16
  */
-public class AOPHandle implements InvocationHandler{
+public class AOPHandle implements InvocationHandler {
     //保存对象
     private AOPMethod method;
     private Object o;
-    public AOPHandle(Object o,AOPMethod method) {
-        this.o=o;
-        this.method=method;
+
+    public AOPHandle(Object o, AOPMethod method) {
+        this.o = o;
+        this.method = method;
     }
+
     /**
      * 这个方法会自动调用,Java动态代理机制
      * 会传入下面是个参数
@@ -23,10 +25,10 @@ public class AOPHandle implements InvocationHandler{
      **/
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        Object ret=null;
+        Object ret = null;
         //修改的地方在这里哦
         this.method.before(proxy, method, args);
-        ret=method.invoke(o, args);
+        ret = method.invoke(o, args);
         //修改的地方在这里哦
         this.method.after(proxy, method, args);
         return ret;

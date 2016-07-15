@@ -8,5 +8,5 @@ import videocenter.model.base.BaseResponse;
  * @Date 2016/5/9
  */
 public interface BaseDao<REQ extends BaseRequest, RESP extends BaseResponse> {
-	RESP excute(REQ req) throws Exception;
+    RESP excute(REQ req) throws Exception;
 }

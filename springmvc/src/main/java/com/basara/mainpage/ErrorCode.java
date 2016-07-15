@@ -62,9 +62,9 @@ public enum ErrorCode {
     public static ErrorCode genEnumByIntValue(int intValue) {
         ErrorCode[] var5;
         int var4 = (var5 = values()).length;
-        for(int var3 = 0; var3 < var4; ++var3) {
+        for (int var3 = 0; var3 < var4; ++var3) {
             ErrorCode item = var5[var3];
-            if(item.value == intValue) {
+            if (item.value == intValue) {
                 return item;
             }
         }

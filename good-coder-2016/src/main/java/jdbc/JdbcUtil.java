@@ -10,12 +10,12 @@ import java.sql.ResultSet;
  * @Date 2016/6/23
  */
 public class JdbcUtil {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         Class.forName("mysql.jdbc.driver.Driver");
         Connection conn = DriverManager.getConnection("");
         PreparedStatement statement = conn.prepareStatement("");
         ResultSet set = statement.getResultSet();
-        while (set.next()){
+        while (set.next()) {
             String str = set.getString(1);
         }
     }

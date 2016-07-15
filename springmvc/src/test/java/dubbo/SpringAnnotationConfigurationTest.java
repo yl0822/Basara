@@ -11,12 +11,13 @@ import org.springframework.context.annotation.Configuration;
 public class SpringAnnotationConfigurationTest {
 
     @Bean
-    public Hibernate hibernate(){
+    public Hibernate hibernate() {
         return new Hibernate();
     }
 
 }
-class Hibernate{
+
+class Hibernate {
 
     @Override
     public String toString() {

@@ -7,6 +7,22 @@ public class Book {
     private String name;
     private Integer price;
 
+    public static void main(String[] args) throws Throwable {
+        //封装类型无法实列化????!!!!!
+//        Long l = 2L;
+//        Long id = l.getClass().newInstance();
+//        System.out.println(id);
+
+//        String s = "aaa";
+//        String name = s.getClass().newInstance();
+//        System.out.println(name);
+
+//        Book b = new Book();
+//        Book book = b.getClass().newInstance();
+//        System.out.println(book);
+        System.out.println(Book.class.getDeclaredField("id").getType().getSimpleName());
+    }
+
     public Long getId() {
         return id;
     }
@@ -38,21 +54,5 @@ public class Book {
                 ", name='" + name + '\'' +
                 ", price=" + price +
                 '}';
-    }
-
-    public static void main(String[] args) throws Throwable{
-        //封装类型无法实列化????!!!!!
-//        Long l = 2L;
-//        Long id = l.getClass().newInstance();
-//        System.out.println(id);
-
-//        String s = "aaa";
-//        String name = s.getClass().newInstance();
-//        System.out.println(name);
-
-//        Book b = new Book();
-//        Book book = b.getClass().newInstance();
-//        System.out.println(book);
-        System.out.println(Book.class.getDeclaredField("id").getType().getSimpleName());
     }
 }

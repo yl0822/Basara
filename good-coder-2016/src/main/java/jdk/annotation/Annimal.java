@@ -5,13 +5,13 @@ package jdk.annotation;
  * @Date 2016/6/16
  */
 public interface Annimal {
-     void setName(String name);
+    String getName();
 
-     String getName();
+    void setName(String name);
 
-     void say();
+    void say();
 
-     void setProperty(String Property);
+    void setProperty(String Property);
 
-     void getProperty();
+    void getProperty();
 }

@@ -9,14 +9,14 @@ import java.net.Socket;
  * @Date 2016/6/5
  */
 public class Server {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         ServerSocket listener = new ServerSocket(9090);
-        while(true){
+        while (true) {
             Socket socket = listener.accept();
             try {
                 PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
                 out.println("asdasd");
-            }finally {
+            } finally {
                 socket.close();
                 listener.close();
             }

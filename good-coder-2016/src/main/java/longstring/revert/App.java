@@ -1,9 +1,6 @@
 package longstring.revert;
 
-import concurrent.countdownlatch.ConcurrentExecutor;
-
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -14,10 +11,10 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @Date 2016/6/3
  */
 public class App {
-    public static void execute(final Task task, int group, String str) throws InterruptedException{
+    public static void execute(final Task task, int group, String str) throws InterruptedException {
         final String[] strings = new String[group];
         for (int i = 0; i < group; i++) {
-            strings[i] = str.substring(i * (str.length() / group),(i + 1) * ((str.length() / group)));
+            strings[i] = str.substring(i * (str.length() / group), (i + 1) * ((str.length() / group)));
         }
         System.out.println(Arrays.toString(strings));
         final StringBuilder result = new StringBuilder();
@@ -33,9 +30,9 @@ public class App {
                     try {
                         begin.await();
                         result.append(task.execute(strings[i.get()]));
-                    }catch (Exception e){
+                    } catch (Exception e) {
 
-                    }finally {
+                    } finally {
                         end.countDown();
                     }
                 }
@@ -49,7 +46,7 @@ public class App {
         System.out.println(result);
     }
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         final String str = "abcdefghijklmnopqrstuvwxyz";
         int group = 6;
         Task task = new StringRevertTask();

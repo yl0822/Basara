@@ -7,12 +7,12 @@ import java.util.Map;
  * @Date 2016/1/14
  */
 public class MapBasara {
-    public static boolean isNullOrEmpty(Map<?, ?> map){
+    public static boolean isNullOrEmpty(Map<?, ?> map) {
         return map == null || map.isEmpty();
     }
 
-    public static void print(Map<String, ?> map){
-        if (isNullOrEmpty(map)){
+    public static void print(Map<String, ?> map) {
+        if (isNullOrEmpty(map)) {
             return;
         }
         StringBuilder sb = new StringBuilder("start to print map ,size : ").append(map.size()).append(" as follow....");

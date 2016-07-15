@@ -11,7 +11,7 @@ import org.aspectj.lang.annotation.Before;
 public class StdAspect {
 
     @Before("execution(* spring.*.*(..))")
-    public void cutBefore(){
+    public void cutBefore() {
         System.out.println("before target method invoke ... ");
     }
 }

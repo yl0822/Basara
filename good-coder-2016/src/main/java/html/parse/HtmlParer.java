@@ -12,9 +12,9 @@ import java.io.File;
  * @Date 2016/6/23
  */
 public class HtmlParer {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         File input = new File("D:\\test.html");
-        if (!input.exists()){
+        if (!input.exists()) {
             input.createNewFile();
         }
         Document doc = Jsoup.parse(input, "UTF-8", "http://www.oschina.net/");

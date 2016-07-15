@@ -18,10 +18,10 @@ public class App {
             @Override
             public void run() {
                 for (int i = 0; i < 100; i++) {
-                    if (list.get(i) == 100){
+                    if (list.get(i) == 100) {
                         try {
                             Thread.currentThread().sleep(300);
-                        }catch (Exception e){
+                        } catch (Exception e) {
 
                         }
                         System.out.println(list.get(i));

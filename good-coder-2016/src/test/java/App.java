@@ -1,14 +1,13 @@
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.TreeMap;
 
 /**
  * Created by long.yl on 2016/7/11.
  */
 public class App {
     public int i;
-
-    public void print(){
-        System.out.println(" i = " + i);
-    }
 
     public static void main(String[] args) {
         HashMap<String, Object> hashMap = new HashMap<>();
@@ -44,5 +43,9 @@ public class App {
 
         System.out.println(Arrays.toString(linkedHashMap.keySet().toArray()));
 
+    }
+
+    public void print() {
+        System.out.println(" i = " + i);
     }
 }

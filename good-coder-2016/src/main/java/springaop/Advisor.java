@@ -6,7 +6,7 @@ import pattern.proxy.Translator;
  * @author long.yl.
  * @Date 2016/6/1
  */
-public class Advisor implements Translator{
+public class Advisor implements Translator {
 
     @Override
     public void transToChiness(String str) {

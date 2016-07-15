@@ -6,13 +6,30 @@ import java.util.List;
 /**
  * @author long.yl.
  */
-public class MobileChristmasUnitVO implements Serializable{
+public class MobileChristmasUnitVO implements Serializable {
 
 
     private static final long serialVersionUID = 5623463743823197977L;
     private List<Unit> list;
 
-    public static class Unit{
+    public List<Unit> getList() {
+        return list;
+    }
+
+    public void setList(List<Unit> list) {
+        this.list = list;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Unit unit : this.list) {
+            sb.append(unit).append("\n");
+        }
+        return sb.toString();
+    }
+
+    public static class Unit {
         private int id;
         private String imgUrl;
         private String linkUrl;
@@ -49,22 +66,5 @@ public class MobileChristmasUnitVO implements Serializable{
                     ", linkUrl='" + linkUrl + '\'' +
                     '}';
         }
-    }
-
-    public List<Unit> getList() {
-        return list;
-    }
-
-    public void setList(List<Unit> list) {
-        this.list = list;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        for (Unit unit : this.list) {
-            sb.append(unit).append("\n");
-        }
-        return sb.toString();
     }
 }

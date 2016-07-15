@@ -2,18 +2,11 @@ package com.basara.processor;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.InitBinder;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
-import java.io.Serializable;
-import java.lang.reflect.Proxy;
 
 /**
  * Created by Larry .Yang
@@ -29,7 +22,7 @@ public class Bar implements BeanNameAware, BeanFactoryAware, InitializingBean, D
     private BeanFactory beanFactory;
     private String beanName;
 
-    public Bar(){
+    public Bar() {
         System.out.println("【类本身构造器】调用Person的构造器实例化");
     }
 
@@ -43,16 +36,16 @@ public class Bar implements BeanNameAware, BeanFactoryAware, InitializingBean, D
     }
 
     @PostConstruct
-    public void postConstruct(){
+    public void postConstruct() {
         System.out.println("【注解的初始化】调用PostConstruct注解指定的方法");
     }
 
     @PreDestroy
-    public void preDestroy(){
+    public void preDestroy() {
         System.out.println("【注解的销毁】调用PreDestroy注解指定的方法");
     }
 
-    public void doPrint(){
+    public void doPrint() {
         System.out.println("【业务处理】bar实现的一些操作...");
     }
 
@@ -79,11 +72,11 @@ public class Bar implements BeanNameAware, BeanFactoryAware, InitializingBean, D
                 .println("【接口的初始化】InitializingBean接口，调用InitializingBean.afterPropertiesSet()");
     }
 
-    public void myinit(){
+    public void myinit() {
         System.out.println("【自定义初始化】<bean>中配置的init-method调用的方法");
     }
 
-    public void mydes(){
+    public void mydes() {
         System.out.println("【自定义销毁】<bean>中配置的destroy-method调用的方法");
     }
 }

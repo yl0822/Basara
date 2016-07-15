@@ -11,7 +11,7 @@ public class FileBasara {
     public static String getStringFromFile(String filePath) {
         String result = "";
         try (InputStream inputStream = new FileInputStream(new File(filePath));
-             ByteArrayOutputStream out = new ByteArrayOutputStream()){
+             ByteArrayOutputStream out = new ByteArrayOutputStream()) {
             byte[] buffer = new byte[1024];
             int len;
             while ((len = inputStream.read(buffer)) != -1) {
@@ -19,9 +19,9 @@ public class FileBasara {
                 out.flush();
             }
             result = out.toString();
-        }catch (FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             LoggerBasara.error(FileBasara.class, "文件未找到,路径:{}, 时间:{}", filePath, TimeBasara.getCurrentTimeInString());
-        }catch (IOException e){
+        } catch (IOException e) {
             LoggerBasara.error(FileBasara.class, "磁盘IO错误:{}", filePath);
         }
         return result;

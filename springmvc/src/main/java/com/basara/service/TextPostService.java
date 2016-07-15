@@ -7,13 +7,13 @@ import com.basara.meta.TextPost;
  * @Date 2016/3/15
  */
 public interface TextPostService {
-	boolean addTestPost(TextPost post);
+    boolean addTestPost(TextPost post);
 
-	boolean deleteTestPostById(long id);
+    boolean deleteTestPostById(long id);
 
-	boolean updateTestPost(TextPost post);
+    boolean updateTestPost(TextPost post);
 
-	TextPost getTestPostById(long id);
+    TextPost getTestPostById(long id);
 
-	boolean getTestPostListByTag(int tag);
+    boolean getTestPostListByTag(int tag);
 }

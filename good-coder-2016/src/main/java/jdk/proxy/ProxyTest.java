@@ -18,7 +18,7 @@ public class ProxyTest {
          * hello         : 真实主题角色，被代理类的实例
          */
         Real proxyHello = (Real) Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(),
-                new Class[] { Real.class }, new InvocationHandler() {
+                new Class[]{Real.class}, new InvocationHandler() {
 
                     /*
                      * @param proxy : 当前代理类的一个实例； 若在invoke()方法中调用proxy的非final方法，将造成无限循环调用.
@@ -31,7 +31,7 @@ public class ProxyTest {
                         try {
                             // 调用被代理类的方法，传入参数args，得到返回
                             object = method.invoke(hello, args);
-                        }catch (Exception e){
+                        } catch (Exception e) {
                             System.out.println("---ThrowAdvice");
                         }
 

@@ -9,7 +9,7 @@ import java.util.Enumeration;
  * @author long.yl.
  * @Date 2016/3/21
  */
-public class RedisHttpSession implements HttpSession{
+public class RedisHttpSession implements HttpSession {
 
     @Override
     public long getCreationTime() {
@@ -32,13 +32,13 @@ public class RedisHttpSession implements HttpSession{
     }
 
     @Override
-    public void setMaxInactiveInterval(int interval) {
-
+    public int getMaxInactiveInterval() {
+        return 0;
     }
 
     @Override
-    public int getMaxInactiveInterval() {
-        return 0;
+    public void setMaxInactiveInterval(int interval) {
+
     }
 
     @Override

@@ -1,32 +1,29 @@
 package spring;
 
-import org.springframework.stereotype.Component;
-
 import javax.annotation.PostConstruct;
 
 /**
  * @author long.yl.
  * @Date 2016/6/2
  */
-class Student{
+class Student {
 
     private String name;
     private int age;
 
-    @PostConstruct
-    public void postConstruct(){
-        System.out.println("postConstruct being invoked ... ");
-    }
-
-    public Student(){
+    public Student() {
         System.out.println("default construct ... ");
     }
 
-    public Student(String name, int age){
+    public Student(String name, int age) {
         this.name = name;
         this.age = age;
     }
 
+    @PostConstruct
+    public void postConstruct() {
+        System.out.println("postConstruct being invoked ... ");
+    }
 
     public String getName() {
         return name;
@@ -44,11 +41,11 @@ class Student{
         this.age = age;
     }
 
-    public void init(){
+    public void init() {
         System.out.println("init method invoked ... ");
     }
 
-    public void print(){
+    public void print() {
         System.out.println(name + " - " + age);
     }
 }

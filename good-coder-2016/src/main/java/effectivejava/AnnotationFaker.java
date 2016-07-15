@@ -7,15 +7,9 @@ import java.lang.annotation.Annotation;
  * @Date 2016/3/30
  */
 public class AnnotationFaker {
-    @Geek
-    @Nerd
-    static class Me{
-
-    }
-
     public static void main(String[] args) {
         Me me = new Me();
-        if (me.getClass().isAnnotationPresent(Geek.class)){
+        if (me.getClass().isAnnotationPresent(Geek.class)) {
             System.out.println(me.getClass().getAnnotation(Geek.class).years());
         }
         Annotation[] annotations = me.getClass().getAnnotations();
@@ -25,5 +19,11 @@ public class AnnotationFaker {
         for (Annotation annotation : annotations) {
             System.out.println(annotation.annotationType().getSimpleName().equals(Geek.class.getSimpleName()));
         }
+    }
+
+    @Geek
+    @Nerd
+    static class Me {
+
     }
 }

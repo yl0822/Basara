@@ -2,7 +2,6 @@ package dynamicInvoke;
 
 import sun.misc.ProxyGenerator;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -14,7 +13,7 @@ import java.io.IOException;
 public class ProxyUtil {
 
     //将根据类的信息,动态生成二进制字节码保存到硬盘中
-    public static void genClassByte(Class clazz, String proxyName){
+    public static void genClassByte(Class clazz, String proxyName) {
         byte[] classFile = ProxyGenerator.generateProxyClass(proxyName, clazz.getInterfaces());
         String path = clazz.getResource(".").getPath();
         FileOutputStream fos = null;
@@ -23,12 +22,12 @@ public class ProxyUtil {
             fos = new FileOutputStream(path + proxyName + ".class");
             fos.write(classFile);
             fos.flush();
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 fos.close();
-            }catch (IOException e){
+            } catch (IOException e) {
                 e.printStackTrace();
             }
         }

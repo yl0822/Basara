@@ -3,7 +3,6 @@ package com.basara.dao;
 import com.basara.meta.Singer;
 import com.basara.meta.TextPost;
 import org.apache.ibatis.annotations.*;
-import org.springframework.cache.annotation.CacheEvict;
 
 /**
  * @author long.yl.

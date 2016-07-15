@@ -1,6 +1,5 @@
 package dynamicInvoke;
 
-import javassist.ClassPool;
 import pattern.proxy.Translator;
 import pattern.proxy.TranslatorImpl;
 

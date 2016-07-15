@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
        http://code.alibabatech.com/schema/dubbo
@@ -9,15 +9,15 @@
 
 
     <!-- 提供方应用信息，用于计算依赖关系 -->
-    <dubbo:application name="hello-world-app"  />
+    <dubbo:application name="hello-world-app"/>
 
     <!-- 使用multicast广播注册中心暴露服务地址 -->
-    <dubbo:registry address="multicast://224.5.6.7:1234" />
+    <dubbo:registry address="multicast://224.5.6.7:1234"/>
 
     <!-- 用dubbo协议在20880端口暴露服务 -->
-    <dubbo:protocol name="dubbo" port="20881" />
+    <dubbo:protocol name="dubbo" port="20881"/>
 
-    <dubbo:service interface="com.redis.dc.Client" ref="hashClient" />
+    <dubbo:service interface="com.redis.dc.Client" ref="hashClient"/>
 
-    <bean id="hashClient" class="com.redis.dc.HashClient" />
+    <bean id="hashClient" class="com.redis.dc.HashClient"/>
 </beans>

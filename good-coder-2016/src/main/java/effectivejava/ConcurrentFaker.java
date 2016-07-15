@@ -17,10 +17,10 @@ public class ConcurrentFaker extends Application {
             @Override
             public void run() {
                 int i = 0;
-                while (!isStop){
+                while (!isStop) {
                     try {
                         Thread.sleep(100);
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                     System.out.println(i++);
@@ -30,7 +30,7 @@ public class ConcurrentFaker extends Application {
         myThread.start();
         try {
             TimeUnit.SECONDS.sleep(1);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         isStop = true;
@@ -42,10 +42,10 @@ public class ConcurrentFaker extends Application {
             @Override
             public void run() {
                 int i = 0;
-                while (!isStop){
+                while (!isStop) {
                     try {
                         Thread.sleep(100);
-                    }catch (Exception e){
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                     System.out.println(i++);
@@ -55,7 +55,7 @@ public class ConcurrentFaker extends Application {
         myThread.start();
         try {
             TimeUnit.SECONDS.sleep(1);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         isStop = true;

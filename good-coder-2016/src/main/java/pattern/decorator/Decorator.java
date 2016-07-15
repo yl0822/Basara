@@ -8,7 +8,7 @@ public class Decorator implements Translator {
 
     private Translator translator;
 
-    public Decorator(Translator translator){
+    public Decorator(Translator translator) {
         this.translator = translator;
     }
 

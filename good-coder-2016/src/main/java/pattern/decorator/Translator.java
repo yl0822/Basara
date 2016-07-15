@@ -6,5 +6,6 @@ package pattern.decorator;
  */
 public interface Translator {
     void trans2Chiness();
+
     void tarns2English();
 }

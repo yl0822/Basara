@@ -10,7 +10,7 @@ import javassist.CtMethod;
  * Package: parent_PACKAGE_NAME
  */
 public class ClassGen {
-    public static void main(String[] args) throws Throwable{
+    public static void main(String[] args) throws Throwable {
         /**
          * 动态插入Coder的code方法
          * */

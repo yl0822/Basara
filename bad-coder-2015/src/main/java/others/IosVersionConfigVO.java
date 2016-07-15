@@ -5,14 +5,18 @@ import java.io.Serializable;
 /**
  * @author long.yl.
  */
-public class IosVersionConfigVO implements Serializable{
+public class IosVersionConfigVO implements Serializable {
 
     private static final long serialVersionUID = -1230062414860419999L;
 
-    /** ios�汾�� */
+    /**
+     * ios�汾��
+     */
     private String version;
 
-    /** �汾��Ӧ������ */
+    /**
+     * �汾��Ӧ������
+     */
     private Config config;
 
     public IosVersionConfigVO() {
@@ -45,7 +49,15 @@ public class IosVersionConfigVO implements Serializable{
         this.config = config;
     }
 
-    static class Config{
+    @Override
+    public String toString() {
+        return "IosVersionConfigVO{" +
+                "version='" + version + '\'' +
+                ", config=" + config +
+                '}';
+    }
+
+    static class Config {
 
         //�����汾�ţ�ÿ��Ӧ�ð汾��������1��ʼ����
         private int patchVersion;
@@ -112,13 +124,5 @@ public class IosVersionConfigVO implements Serializable{
                     ", patchMD5='" + patchMD5 + '\'' +
                     '}';
         }
-    }
-
-    @Override
-    public String toString() {
-        return "IosVersionConfigVO{" +
-                "version='" + version + '\'' +
-                ", config=" + config +
-                '}';
     }
 }

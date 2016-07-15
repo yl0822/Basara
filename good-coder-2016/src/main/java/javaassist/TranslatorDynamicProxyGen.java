@@ -1,8 +1,9 @@
 package javaassist;
 
 import javassist.*;
-import pattern.proxy.*;
 import pattern.proxy.Translator;
+import pattern.proxy.TranslatorImpl;
+import pattern.proxy.TranslatorStaticProxy;
 
 import java.io.IOException;
 import java.lang.reflect.Constructor;
@@ -16,7 +17,7 @@ import java.lang.reflect.InvocationTargetException;
 public class TranslatorDynamicProxyGen {
     //通过javassist工具,动态生成translator的代理类
 
-    public static void main(String[] args) throws Throwable{
+    public static void main(String[] args) throws Throwable {
         Translator translatorStaticProxy = new TranslatorStaticProxy(new TranslatorImpl());
         Translator translatorDynamicProxy = genProxy();
         translatorStaticProxy.transToChiness("网易");
@@ -24,8 +25,7 @@ public class TranslatorDynamicProxyGen {
     }
 
     public static Translator genProxy() throws NotFoundException, CannotCompileException, NoSuchMethodException,
-        InstantiationException, IllegalAccessException, InvocationTargetException, IOException
-    {
+            InstantiationException, IllegalAccessException, InvocationTargetException, IOException {
         ClassPool pool = ClassPool.getDefault();
 
         //生成类用makeClass,修改类用get,其他类型同理

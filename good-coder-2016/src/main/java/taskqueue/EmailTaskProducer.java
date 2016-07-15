@@ -1,13 +1,12 @@
 package taskqueue;
 
 import java.util.LinkedList;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * @author long.yl.
  * @Date 2016/6/18
  */
-public class EmailTaskProducer implements TaskProducer<TimeKillerTask>{
+public class EmailTaskProducer implements TaskProducer<TimeKillerTask> {
 
     private static LinkedList<TimeKillerTask> taskQueue;
 
@@ -16,8 +15,8 @@ public class EmailTaskProducer implements TaskProducer<TimeKillerTask>{
     }
 
     @Override
-    public synchronized void addTask(TimeKillerTask task){
-        synchronized(taskQueue){
+    public synchronized void addTask(TimeKillerTask task) {
+        synchronized (taskQueue) {
             taskQueue.addFirst(task);
             taskQueue.notifyAll();
         }

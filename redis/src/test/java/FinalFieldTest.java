@@ -8,22 +8,19 @@ import java.lang.reflect.Field;
  */
 public final class FinalFieldTest {
 
-    private String name = "aaa";
-
+    public static final String name5 = "eee";
     private static String name2 = "bbb";
 
     private final String name3 = "ccc";
 
     public String name4 = "ddd";
-
-    public static final String name5 = "eee";
-
+    private String name = "aaa";
 
     /**
      * 反射无法修改static final属性，但可以修改static或final属性，private无影响
-     * */
+     */
     @Test
-    public void dotest(){
+    public void dotest() {
         try {
             FinalFieldTest test = new FinalFieldTest();
             System.out.println(test);
@@ -32,7 +29,7 @@ public final class FinalFieldTest {
                 field.set(test, "111");
             }
             System.out.println(test);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

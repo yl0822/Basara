@@ -1,7 +1,6 @@
 package effectivejava;
 
 import java.math.BigDecimal;
-import java.util.Scanner;
 
 /**
  * @author long.yl.
@@ -15,7 +14,7 @@ public class ScannerFaker {
         System.out.println(decimal.toPlainString());
     }
 
-    public static void change(BigDecimal decimal){
+    public static void change(BigDecimal decimal) {
         decimal = new BigDecimal(50);
     }
 }

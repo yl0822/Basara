@@ -30,7 +30,7 @@ public class App {
         System.out.println("主线程在执行任务");
 
         try {
-            System.out.println("task运行结果"+futureTask.get());
+            System.out.println("task运行结果" + futureTask.get());
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -39,6 +39,7 @@ public class App {
 
         System.out.println("所有任务执行完毕");
     }
+
     static class Task implements Callable<Integer> {
         @Override
         public Integer call() throws Exception {

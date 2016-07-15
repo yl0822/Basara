@@ -9,67 +9,67 @@ import java.util.Date;
  */
 public class TextPost implements Serializable {
 
-	private static final long serialVersionUID = -4129151681391522543L;
+    private static final long serialVersionUID = -4129151681391522543L;
 
-	private long id;
+    private long id;
 
-	private String title;
+    private String title;
 
-	private String content;
+    private String content;
 
-	private String authName;
+    private String authName;
 
-	private Date createTime;
+    private Date createTime;
 
-	private int tag;
+    private int tag;
 
-	public long getId() {
-		return id;
-	}
+    public long getId() {
+        return id;
+    }
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public String getContent() {
-		return content;
-	}
+    public String getContent() {
+        return content;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    public void setContent(String content) {
+        this.content = content;
+    }
 
-	public String getAuthName() {
-		return authName;
-	}
+    public String getAuthName() {
+        return authName;
+    }
 
-	public void setAuthName(String authName) {
-		this.authName = authName;
-	}
+    public void setAuthName(String authName) {
+        this.authName = authName;
+    }
 
-	public Date getCreateTime() {
-		return createTime;
-	}
+    public Date getCreateTime() {
+        return createTime;
+    }
 
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
-	}
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 
-	public int getTag() {
-		return tag;
-	}
+    public int getTag() {
+        return tag;
+    }
 
-	public void setTag(int tag) {
-		this.tag = tag;
-	}
+    public void setTag(int tag) {
+        this.tag = tag;
+    }
 
     @Override
     public String toString() {

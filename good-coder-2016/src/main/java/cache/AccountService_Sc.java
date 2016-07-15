@@ -5,7 +5,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Service;
 
 /**
@@ -17,7 +16,7 @@ public class AccountService_Sc {
     private final Logger logger = LoggerFactory.getLogger(AccountService_Sc.class);
 
     // 使用了一个缓存名叫 accountCache
-    @Cacheable(value="accountCache")
+    @Cacheable(value = "accountCache")
     public Account getAccountByName(String accountName) {
 
         // 方法内部实现不考虑缓存逻辑，直接实现业务
@@ -30,7 +29,7 @@ public class AccountService_Sc {
         return accountOptional.get();
     }
 
-    @CacheEvict(value="accountCache",allEntries=true,beforeInvocation = true)
+    @CacheEvict(value = "accountCache", allEntries = true, beforeInvocation = true)
     public void reload() {
         logger.info("clear cache map ... ");
     }

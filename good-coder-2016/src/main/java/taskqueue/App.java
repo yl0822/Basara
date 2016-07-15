@@ -20,11 +20,11 @@ public class App {
 
         while (true) {
             try {
-                int seed = (int)(Math.random() * 1000);
+                int seed = (int) (Math.random() * 1000);
                 Thread.sleep(seed);
                 System.out.println("主线程向队列添加任务，目前任务队列长度：" + producer.howMany());
                 producer.addTask(new TimeKillerTask("sd_style@163.com:" + seed));
-            }catch (Exception e){
+            } catch (Exception e) {
 
             }
         }

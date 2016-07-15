@@ -1,23 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xmlns:mybatis="http://mybatis.org/schema/mybatis-spring"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns="http://www.springframework.org/schema/beans"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
-        http://mybatis.org/schema/mybatis-spring
-        http://mybatis.org/schema/mybatis-spring.xsd
+
+
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <import resource="redis-dubbo-provider.xml" />
+    <import resource="redis-dubbo-provider.xml"/>
     <context:property-placeholder location="redis.properties"/>
     <!-- 启动context注解扫描（@Autowired、@Required） -->
     <context:annotation-config/>
     <!-- 启用spring组件扫描功能，并指定扫描区域（@Compnent、@Service、@Controller等等）-->
     <context:component-scan base-package="com.redis.dc"/>
     <!--<bean id = "jedis" class="redis.clients.jedis.Jedis">-->
-        <!--<constructor-arg name="host" value="${redis.host}"/>-->
-        <!--<constructor-arg name="port" value="${redis.port}"/>-->
+    <!--<constructor-arg name="host" value="${redis.host}"/>-->
+    <!--<constructor-arg name="port" value="${redis.port}"/>-->
     <!--</bean>-->
 </beans>

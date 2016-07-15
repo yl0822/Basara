@@ -10,7 +10,7 @@ import org.junit.Test;
 public class FacadeTest {
 
     @Test
-    public void test(){
+    public void test() {
         Invoker invoker = new Invoker() {
             @Override
             public void printInfo(Foo foo) {

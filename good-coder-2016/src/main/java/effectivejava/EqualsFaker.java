@@ -5,7 +5,28 @@ package effectivejava;
  * @Date 2016/3/30
  */
 public class EqualsFaker {
-    static class Student{
+    public static void main(String[] args) {
+        Student student1 = new Student();
+        student1.setName("abc");
+        student1.setsId(12345);
+        student1.setAge(12);
+        student1.setClassInfo(54);
+        Student student2 = new Student();
+        student2.setName("abc");
+        student2.setsId(12345);
+        student2.setAge(122);
+        student2.setClassInfo(534);
+        Student student3 = new Student();
+        student3.setName("abc");
+        student3.setsId(123452);
+        student3.setAge(122);
+        student3.setClassInfo(534);
+        System.out.println(student1.equals(student1));
+        System.out.println(student1.equals(student2));
+        System.out.println(student1.equals(student3));
+    }
+
+    static class Student {
         private String name;
         private long sId;
         private int age;
@@ -47,34 +68,13 @@ public class EqualsFaker {
         public boolean equals(Object obj) {
             if (this == obj)
                 return true;
-            if (obj instanceof Student){
+            if (obj instanceof Student) {
                 Student student = (Student) obj;
-                if (this.name == student.getName() && this.sId == student.getsId()){
+                if (this.name == student.getName() && this.sId == student.getsId()) {
                     return true;
                 }
             }
             return false;
         }
-    }
-
-    public static void main(String[] args) {
-        Student student1 = new Student();
-        student1.setName("abc");
-        student1.setsId(12345);
-        student1.setAge(12);
-        student1.setClassInfo(54);
-        Student student2 = new Student();
-        student2.setName("abc");
-        student2.setsId(12345);
-        student2.setAge(122);
-        student2.setClassInfo(534);
-        Student student3 = new Student();
-        student3.setName("abc");
-        student3.setsId(123452);
-        student3.setAge(122);
-        student3.setClassInfo(534);
-        System.out.println(student1.equals(student1));
-        System.out.println(student1.equals(student2));
-        System.out.println(student1.equals(student3));
     }
 }

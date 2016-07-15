@@ -4,15 +4,8 @@ package tools.netease.basara;
  * @author long.yl.
  * @Date 2015/12/31
  */
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Enumeration;

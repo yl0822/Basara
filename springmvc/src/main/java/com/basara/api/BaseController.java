@@ -16,7 +16,7 @@ public class BaseController {
     private static Logger logger = LoggerFactory.getLogger(TextPostController.class);
 
     @RequestMapping("/")
-    public void index(){
+    public void index() {
         logger.info("你过来啊啊啊啊啊啊啊啊啊啊啊！");
     }
 }

@@ -10,7 +10,7 @@ import java.util.Map;
 public class ObjectCast2StringTest {
 
     @Test
-    public void doCast(){
+    public void doCast() {
         Map<String, Object> map = new HashMap<>();
         map.put("aaa", "bbb");
         System.out.println(map.get("aaa"));

@@ -24,22 +24,22 @@ public class SingerDaoTest extends BaseTest {
     SingerDao singerDao;
 
     @BeforeClass //必须是static的，因为这个会在类实列化之前调用
-    public static void beforClass(){
+    public static void beforClass() {
         rootLogger.info("这里可以做一些类初始化之前的操作...........");
     }
 
     @Before
-    public void befor(){
+    public void befor() {
         rootLogger.info("这里可以做一些初始化操作...........");
     }
 
     @After
-    public void after(){
+    public void after() {
         rootLogger.info("这里可以做一些资源关闭操作...........");
     }
 
     @Test
-    public void insert(){
+    public void insert() {
         Singer singer = new Singer();
         singer.setName("周杰伦");
         singer.setNickName("纠结轮");

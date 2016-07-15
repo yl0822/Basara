@@ -13,15 +13,15 @@ public class Foo {
 
     public static String desc = "ba";
 
-    public void doMath(){
+    public void doMath() {
         //todo domath thing
     }
 
-    public long getAge(){
+    public long getAge() {
         return age;
     }
 
-    public String getInfo(){
+    public String getInfo() {
         return name + desc;
     }
 }

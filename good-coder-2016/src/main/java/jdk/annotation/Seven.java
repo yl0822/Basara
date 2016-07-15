@@ -10,7 +10,7 @@ import java.lang.annotation.Target;
  * @Date 2016/6/16
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target({ElementType.FIELD,ElementType.METHOD})
+@Target({ElementType.FIELD, ElementType.METHOD})
 public @interface Seven {
 
     String value() default "小黑";

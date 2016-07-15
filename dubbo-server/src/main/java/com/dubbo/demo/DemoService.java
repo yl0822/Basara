@@ -6,5 +6,6 @@ package com.dubbo.demo;
  */
 public interface DemoService {
     String getServiceName();
+
     String sayHello();
 }

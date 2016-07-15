@@ -10,20 +10,21 @@ public class MultiThreadConcurrent {
 
     volatile boolean start = false;
 
-    class MyThread extends Thread{
-        @Override
-        public void run() {
-            System.out.println(Thread.currentThread().getName());
-        }
-    }
-
     public MultiThreadConcurrent(int size) {
         this.size = size;
         threads = new MyThread[size];
     }
 
-    public void concurrentDo(){
-        while (start){
+    public static void main(String[] args) throws Exception {
+        MultiThreadConcurrent concurrent = new MultiThreadConcurrent(10);
+        concurrent.concurrentDo();
+        System.out.println("main thread sleep 3s");
+        Thread.currentThread().sleep(3000);
+        concurrent.setStart(true);
+    }
+
+    public void concurrentDo() {
+        while (start) {
             for (Thread thread : threads) {
                 thread.start();
             }
@@ -34,11 +35,10 @@ public class MultiThreadConcurrent {
         this.start = start;
     }
 
-    public static void main(String[] args) throws Exception {
-        MultiThreadConcurrent concurrent = new MultiThreadConcurrent(10);
-        concurrent.concurrentDo();
-        System.out.println("main thread sleep 3s");
-        Thread.currentThread().sleep(3000);
-        concurrent.setStart(true);
+    class MyThread extends Thread {
+        @Override
+        public void run() {
+            System.out.println(Thread.currentThread().getName());
+        }
     }
 }

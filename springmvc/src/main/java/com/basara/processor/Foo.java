@@ -21,7 +21,7 @@ public class Foo {
 //        this.bar = bar;
 //    }
 
-    public void service(){
+    public void service() {
         bar.doPrint();
     }
 }

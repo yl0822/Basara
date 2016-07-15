@@ -7,8 +7,8 @@
         <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
     <mappers>
-        <mapper class="com.basara.mainpage.xml.MobileLayoutConfigMapper" />
-        <mapper class="com.basara.mainpage.xml.MobileLayoutFormMapper" />
-        <mapper class="com.basara.mainpage.xml.MobileUnitConfigMapper" />
+        <mapper class="com.basara.mainpage.xml.MobileLayoutConfigMapper"/>
+        <mapper class="com.basara.mainpage.xml.MobileLayoutFormMapper"/>
+        <mapper class="com.basara.mainpage.xml.MobileUnitConfigMapper"/>
     </mappers>
 </configuration>

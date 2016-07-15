@@ -22,7 +22,7 @@ public class AopTest {
 //        TextPostService service = (TextPostService)aopTest.applicationContext.getBean("textPostService");
 //        service.getTestPostById(1);
         ApplicationContext context = new ClassPathXmlApplicationContext("classpath:applicationContext-test.xml");
-        TextPostService service2 = (TextPostService)context.getBean("textPostService");
+        TextPostService service2 = (TextPostService) context.getBean("textPostService");
         service2.getTestPostById(1);
     }
 }

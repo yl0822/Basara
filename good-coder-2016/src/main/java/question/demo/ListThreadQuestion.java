@@ -3,7 +3,6 @@ package question.demo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Vector;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
@@ -15,18 +14,7 @@ import java.util.concurrent.Future;
 public class ListThreadQuestion {
     private List<Integer> list = new ArrayList<>();
 
-    public void add(int i){
-        if (!list.contains(i)){
-            try {
-                Thread.sleep((int)(Math.random() * 100));
-            }catch (Exception e){
-
-            }
-            list.add(i);
-        }
-    }
-
-    public static void main(String[] args)throws Exception{
+    public static void main(String[] args) throws Exception {
         final ListThreadQuestion question = new ListThreadQuestion();
 
         ExecutorService service = Executors.newFixedThreadPool(2);
@@ -63,10 +51,21 @@ public class ListThreadQuestion {
 //        });
         ret1.get();
         ret2.get();
-        while (ret1.isDone() && ret2.isDone()){
+        while (ret1.isDone() && ret2.isDone()) {
             System.out.println("-----------");
             System.out.println(Arrays.toString(question.list.toArray()));
             break;
+        }
+    }
+
+    public void add(int i) {
+        if (!list.contains(i)) {
+            try {
+                Thread.sleep((int) (Math.random() * 100));
+            } catch (Exception e) {
+
+            }
+            list.add(i);
         }
     }
 }

@@ -10,7 +10,7 @@ import java.io.*;
  */
 public class SerializeTest {
     @Test
-    public void test() throws Throwable{
+    public void test() throws Throwable {
         //序列化
         FileOutputStream outputStream = new FileOutputStream(new File("D:\\data.txt"));
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(outputStream);
@@ -39,7 +39,7 @@ public class SerializeTest {
     }
 }
 
-class Hibernate implements Serializable{
+class Hibernate implements Serializable {
 
     private static final long serialVersionUID = 1303632374377916215L;
 

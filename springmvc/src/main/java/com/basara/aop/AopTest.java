@@ -8,10 +8,10 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @Date 2016/4/16
  */
 public class AopTest {
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         Class.forName("com.basara.aop.AopConfig");
-        RealObject object = (RealObject)context.getBean("realObject");
+        RealObject object = (RealObject) context.getBean("realObject");
         System.out.println("------------------------------");
         object.finalMethodTest();
         System.out.println("------------------------------");

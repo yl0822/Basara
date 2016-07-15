@@ -33,12 +33,12 @@ public class BaseJsonVO implements Serializable {
         return code;
     }
 
-    public void setCode(int code) {
-        this.code = code;
-    }
-
     public void setCode(ErrorCode code) {
         this.code = code.getIntValue();
+    }
+
+    public void setCode(int code) {
+        this.code = code;
     }
 
     public String getMessage() {

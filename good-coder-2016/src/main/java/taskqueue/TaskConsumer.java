@@ -15,17 +15,17 @@ public class TaskConsumer {
         executor = Executors.newCachedThreadPool();
     }
 
-    public void killTask(TaskProducer producer){
-        while (true){
-            if (producer.hasNext()){
+    public void killTask(TaskProducer producer) {
+        while (true) {
+            if (producer.hasNext()) {
                 executor.submit(producer.getTask());
-            }else {
+            } else {
                 continue;
             }
         }
     }
 
-    public void close(){
+    public void close() {
         System.out.println("executor 被关闭 ... ");
         executor.shutdown();
     }

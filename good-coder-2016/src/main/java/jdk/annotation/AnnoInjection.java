@@ -21,7 +21,7 @@ public class AnnoInjection {
                     // 反射调用public set方法,如果为访问级别private,那么可以直接使用属性的set(obj, value);
                     obj.getClass()
                             .getMethod("set" + ff.getName().substring(0, 1).toUpperCase() + ff.getName().substring(1),
-                                    new Class[] { String.class })
+                                    new Class[]{String.class})
                             .invoke(obj, s.value());
                 }
             }

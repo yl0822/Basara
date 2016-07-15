@@ -2,8 +2,6 @@ package effectivejava;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author long.yl.
@@ -11,7 +9,21 @@ import java.util.List;
  */
 public class FieldChangeFaker {
 
-    static class Foo{
+    public static void main(String[] args) throws Throwable {
+        Foo foo = new Foo();
+        foo.setName("yl");
+        System.out.println(foo);
+        Field field = foo.getClass().getDeclaredField("name");
+        field.setAccessible(true);
+        field.set(foo, "yanglong");
+        System.out.println(foo);
+        Method method = foo.getClass().getDeclaredMethod("getName");
+        method.setAccessible(true);
+        method.invoke(foo);
+        System.out.println(foo);
+    }
+
+    static class Foo {
         private String name;
 
         public String getName() {
@@ -28,19 +40,5 @@ public class FieldChangeFaker {
                     "name='" + name + '\'' +
                     '}';
         }
-    }
-
-    public static void main(String[] args)throws Throwable{
-        Foo foo = new Foo();
-        foo.setName("yl");
-        System.out.println(foo);
-        Field field = foo.getClass().getDeclaredField("name");
-        field.setAccessible(true);
-        field.set(foo, "yanglong");
-        System.out.println(foo);
-        Method method = foo.getClass().getDeclaredMethod("getName");
-        method.setAccessible(true);
-        method.invoke(foo);
-        System.out.println(foo);
     }
 }

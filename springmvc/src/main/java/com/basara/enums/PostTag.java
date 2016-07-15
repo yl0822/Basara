@@ -6,7 +6,7 @@ import com.basara.enums.base.BaseTag;
  * @author long.yl.
  * @Date 2016/3/15
  */
-public enum PostTag implements BaseTag<PostTag>{
+public enum PostTag implements BaseTag<PostTag> {
     NULL(0, "未归类"),
     POLITCAL(1, "政治"),
     SPORT(2, "体育"),

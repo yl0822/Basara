@@ -10,7 +10,7 @@ public class TranslatorStaticProxy implements Translator {
     //这里是普通的代理模式
     Translator translator;
 
-    public TranslatorStaticProxy(Translator translator){
+    public TranslatorStaticProxy(Translator translator) {
         this.translator = translator;
     }
 
@@ -33,7 +33,7 @@ public class TranslatorStaticProxy implements Translator {
         translator.transToJapaness(str);
     }
 
-    private void extFuncation(String str){
+    private void extFuncation(String str) {
         System.out.println(str + " 额外的功能...");
     }
 }

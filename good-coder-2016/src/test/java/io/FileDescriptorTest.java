@@ -2,7 +2,10 @@ package io;
 
 import org.junit.Test;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
 
 /**
  * @author long.yl.
@@ -10,7 +13,7 @@ import java.io.*;
  */
 public class FileDescriptorTest {
     @Test
-    public void test()throws Throwable{
+    public void test() throws Throwable {
         //这里其实文件即使不存在也不会报错
         File file = new File("nofileexists");
         //hint:这里会报错

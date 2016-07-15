@@ -2,7 +2,6 @@ package com.basara.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,16 +11,16 @@ import org.springframework.stereotype.Component;
 
 /**
  * 声明切面
- * */
+ */
 @Aspect
 @Component
 public class LogAspect {
 
     /**
      * 定义切入点
-     * */
+     */
     @Pointcut("execution(* com.basara.aop.*.*(..))")
-    private void pointCutMethod(){
+    private void pointCutMethod() {
     }
 
     //声明前置通知

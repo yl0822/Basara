@@ -2,22 +2,21 @@ package cache;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+
 /**
  * @author long.yl.
  * @Date 2016/6/17
  */
 public class AccountServiceTest {
 
+    private final Logger logger = LoggerFactory.getLogger(AccountServiceTest.class);
     private AccountService accountService1;
     private AccountService_Sc accountService2;
-
-    private final Logger logger = LoggerFactory.getLogger(AccountServiceTest.class);
 
     @Before
     public void setUp() throws Exception {
@@ -27,7 +26,7 @@ public class AccountServiceTest {
     }
 
     @Test
-    public void testInject(){
+    public void testInject() {
         assertNotNull(accountService1);
         assertNotNull(accountService2);
     }

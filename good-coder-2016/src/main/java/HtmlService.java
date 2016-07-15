@@ -1,81 +1,94 @@
-import java.util.HashMap;
-import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
- * ¾²Ì¬ÎÄ¼þ´¦ÀíµÄÒ»Ð©±ã½Ý·þÎñ
+ * ï¿½ï¿½Ì¬ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»Ð©ï¿½ï¿½Ý·ï¿½ï¿½ï¿½
+ *
  * @author Kettas
- * 4:27:25 PM
+ *         4:27:25 PM
  */
 public class HtmlService {
-    private static Log log=LogFactory.getLog(HtmlService.class);
+    private static Log log = LogFactory.getLog(HtmlService.class);
+
     /**
-     * Çå³ýhtml´úÂë
-     * <p>ËùÓÐ°üÀ¨ÔÚ'<'Óë'>'Ö®¼äµÄÄÚÈÝÈ«²¿¶¼»á±»Çå³ýµô,²¢·µ»Ø</P>
+     * ï¿½ï¿½ï¿½htmlï¿½ï¿½ï¿½ï¿½
+     * <p>ï¿½ï¿½ï¿½Ð°ï¿½ï¿½ï¿½ï¿½ï¿½'<'ï¿½ï¿½'>'Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½á±»ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</P>
+     *
      * @param args
      * @return String
      */
-    public static String clearHTMLToString(String args){
-        return clearHTMLToString(args,false);
+    public static String clearHTMLToString(String args) {
+        return clearHTMLToString(args, false);
     }
+
     /**
-     * Çå³ýhtml´úÂë
-     * <p>ËùÓÐ°üÀ¨ÔÚ'<'Óë'>'Ö®¼äµÄÄÚÈÝÈ«²¿¶¼»á±»Çå³ýµô,²¢·µ»Ø</P>
+     * ï¿½ï¿½ï¿½htmlï¿½ï¿½ï¿½ï¿½
+     * <p>ï¿½ï¿½ï¿½Ð°ï¿½ï¿½ï¿½ï¿½ï¿½'<'ï¿½ï¿½'>'Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½á±»ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</P>
+     *
      * @param args
-     * @param replaceNull ÊÇ·ñÌæ»»¿Õ¸ñµÈÖÆ±í·û
+     * @param replaceNull ï¿½Ç·ï¿½ï¿½æ»»ï¿½Õ¸ï¿½ï¿½ï¿½Æ±ï¿½ï¿½
      * @return String
      */
-    public static String clearHTMLToString(String args,boolean replaceNull){
-        if(StringUtils.isEmpty(args)){
+    public static String clearHTMLToString(String args, boolean replaceNull) {
+        if (StringUtils.isEmpty(args)) {
             return "";
         }
-        args= args.replaceAll("(?is)<(.*?)>","");
-        if(replaceNull){
-            args = args.replaceAll("\\s*|\t|\r|\n","");
+        args = args.replaceAll("(?is)<(.*?)>", "");
+        if (replaceNull) {
+            args = args.replaceAll("\\s*|\t|\r|\n", "");
         }
         return args;
     }
+
     /**
-     * Çå³ýhtml´úÂë
-     * <p>ËùÓÐ°üÀ¨ÔÚ'<'Óë'>'Ö®¼äµÄÄÚÈÝÈ«²¿¶¼»á±»Çå³ýµô£¬²¢Ö¸¶¨·µ»ØµÄ³¤¶È</P>
+     * ï¿½ï¿½ï¿½htmlï¿½ï¿½ï¿½ï¿½
+     * <p>ï¿½ï¿½ï¿½Ð°ï¿½ï¿½ï¿½ï¿½ï¿½'<'ï¿½ï¿½'>'Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½á±»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ØµÄ³ï¿½ï¿½ï¿½</P>
+     *
      * @param args
      * @return String
      */
-    public static String clearHTMLToString(String args,int maxSize){
+    public static String clearHTMLToString(String args, int maxSize) {
         return clearHTMLToString(args, maxSize, "");
     }
+
     /**
-     * Çå³ýhtml´úÂë
-     * <p>ËùÓÐ°üÀ¨ÔÚ'<'Óë'>'Ö®¼äµÄÄÚÈÝÈ«²¿¶¼»á±»Çå³ýµô£¬²¢Ö¸¶¨·µ»ØµÄ³¤¶È</P>
+     * ï¿½ï¿½ï¿½htmlï¿½ï¿½ï¿½ï¿½
+     * <p>ï¿½ï¿½ï¿½Ð°ï¿½ï¿½ï¿½ï¿½ï¿½'<'ï¿½ï¿½'>'Ö®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½á±»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ØµÄ³ï¿½ï¿½ï¿½</P>
+     *
      * @param args
      * @return String
      */
-    public static String clearHTMLToString(String args,int maxSize,String replace){
-        args=clearHTMLToString(args);
-        if(maxSize<=0){
+    public static String clearHTMLToString(String args, int maxSize, String replace) {
+        args = clearHTMLToString(args);
+        if (maxSize <= 0) {
             return args;
         }
-        if(args.length()<=maxSize){
+        if (args.length() <= maxSize) {
             return args;
         }
-        return args.substring(0,maxSize).concat(replace);
+        return args.substring(0, maxSize).concat(replace);
     }
+
     /**
-     * ½«×Ö·û´®½ØÈ¡Ö¸¶¨³¤¶È
+     * ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½È¡Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     *
      * @param args
      * @param maxSize
      * @param replace
      * @return String
      */
-    public static String clearHTMLToSize(String args,int maxSize,String replace){
-        if(args.length()<=maxSize){
+    public static String clearHTMLToSize(String args, int maxSize, String replace) {
+        if (args.length() <= maxSize) {
             return args;
         }
-        return args.substring(0,maxSize).concat(replace);
+        return args.substring(0, maxSize).concat(replace);
     }
 // /**
-//  * ´ÓcssÑùÊ½ÎÄ¼þÖÐ¶ÁÈ¡<Style>ÑùÊ½
+//  * ï¿½ï¿½cssï¿½ï¿½Ê½ï¿½Ä¼ï¿½ï¿½Ð¶ï¿½È¡<Style>ï¿½ï¿½Ê½
 //  * @return String
 //  */
 // public static  String getStyleToString(File file){
@@ -89,7 +102,7 @@ public class HtmlService {
 //    return css;
 //   }
 //   /*
-//    * ¹ýÂËµô×¢ÊÍÓï¾ä
+//    * ï¿½ï¿½ï¿½Ëµï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½
 //    */
 //   css=css.replaceAll("(<[^>]*>)", "");
 //   return css;
@@ -102,7 +115,7 @@ public class HtmlService {
 //  return "";
 // }
 // /**
-//  * ´ÓcssÑùÊ½ÎÄ¼þÖÐ¶ÁÈ¡<Style>ÑùÊ½
+//  * ï¿½ï¿½cssï¿½ï¿½Ê½ï¿½Ä¼ï¿½ï¿½Ð¶ï¿½È¡<Style>ï¿½ï¿½Ê½
 //  * @return Map<String,String>
 //  */
 // public static  Map<String,String> getStyleToMap(File file){
@@ -127,70 +140,76 @@ public class HtmlService {
 //  }
 //  return css;
 // }
+
     /**
-     * ´ÓstyleÑùÊ½ÖÐ¶ÁÈ¡CSSµÄÊôÐÔ
+     * ï¿½ï¿½styleï¿½ï¿½Ê½ï¿½Ð¶ï¿½È¡CSSï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
      * <pre>
      * String style="float:left;margin:0px;font-size:12px;";
      * String fontSize=HTMLServices.getStyleNameValue(style,"font-size");</pre>
+     *
      * @param style
      * @param styleName
      * @return String
      */
-    protected static  String getStyleToString(String style,String styleName){
-        try{
-            Map<String,String> css=cssToMap(style);
+    protected static String getStyleToString(String style, String styleName) {
+        try {
+            Map<String, String> css = cssToMap(style);
             return css.get(styleName);
-        }catch (Exception e) {
+        } catch (Exception e) {
             log.error(e);
         }
         return "";
     }
-    public static String filterChare(String msg,String ...chars){
-        for(String _char:chars){
-            msg=msg.replace(_char,"");
+
+    public static String filterChare(String msg, String... chars) {
+        for (String _char : chars) {
+            msg = msg.replace(_char, "");
         }
         return msg;
     }
-    public static String mapToCSS(Map<String, String> css){
-        StringBuffer style=new StringBuffer();
-        for(Map.Entry <String,String> entry : css.entrySet()){
-            style.append(style.length()>0?",":"");
+
+    public static String mapToCSS(Map<String, String> css) {
+        StringBuffer style = new StringBuffer();
+        for (Map.Entry<String, String> entry : css.entrySet()) {
+            style.append(style.length() > 0 ? "," : "");
             style.append(entry.getKey()).append(":").append(entry.getValue());
         }
         return style.toString();
     }
+
     /**
-     * ½«style·â×°³É¼üÖµ¶Ô
+     * ï¿½ï¿½styleï¿½ï¿½×°ï¿½É¼ï¿½Öµï¿½ï¿½
      * <pre>
      * String style="float:left;margin:0px;font-size:12px;";
      * Map<String,String> css=HTMLServices.getStyleToMap(style);
      * System.out.println("font-size:"+css.get("font-size"));
      * </pre>
+     *
      * @param style
      * @return Map
      */
-    public static  Map<String, String> cssToMap(String style){
-        Map<String, String> map=new HashMap<String, String>();
-        try{
-            if(style==null||StringUtils.isEmpty(style)){
+    public static Map<String, String> cssToMap(String style) {
+        Map<String, String> map = new HashMap<String, String>();
+        try {
+            if (style == null || StringUtils.isEmpty(style)) {
                 return map;
             }
-            style=style.toLowerCase();
-            style=style.split("\\}")[0];
-            String[] csss=style.split("\\;");
-            for(int i=0,iSzie=csss.length;i<iSzie;i++){
-                String [] cssStyle=csss[i].split("\\:");
-                for (int j = 0,jSize=cssStyle.length; (j+1) < jSize; j+=2) {
-                    map.put(cssStyle[j].replace(" ", "").trim(), cssStyle[j+1].toString().trim());
+            style = style.toLowerCase();
+            style = style.split("\\}")[0];
+            String[] csss = style.split("\\;");
+            for (int i = 0, iSzie = csss.length; i < iSzie; i++) {
+                String[] cssStyle = csss[i].split("\\:");
+                for (int j = 0, jSize = cssStyle.length; (j + 1) < jSize; j += 2) {
+                    map.put(cssStyle[j].replace(" ", "").trim(), cssStyle[j + 1].toString().trim());
                 }
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             log.error(e);
         }
         return map;
     }
 // /**
-//  * ´ÓcssÑùÊ½ÖÐ¶ÁÈ¡cssNameµÄÊôÐÔ(×¢Òâ£¬cssÊÇ±ê×¼css)
+//  * ï¿½ï¿½cssï¿½ï¿½Ê½ï¿½Ð¶ï¿½È¡cssNameï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(×¢ï¿½â£¬cssï¿½Ç±ï¿½×¼css)
 //  * @param css
 //  * @param cssName
 //  * @param styleName

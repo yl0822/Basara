@@ -3,7 +3,6 @@ package com.redis.dc;
 import com.redis.dc.base.BaseClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
@@ -33,8 +32,10 @@ public class HashClient extends BaseClient {
 
     /**
      * 添加或修改键值对
-     * */
-    public @Override boolean set(String key, Object value) throws IllegalAccessException{
+     */
+    public
+    @Override
+    boolean set(String key, Object value) throws IllegalAccessException {
         Long result = null;
         for (Field field : value.getClass().getDeclaredFields()) {
             field.setAccessible(true);
@@ -45,32 +46,36 @@ public class HashClient extends BaseClient {
 
     /**
      * 获取存储在指定的键散列字段的值
-     * */
-    public @Override String get(String key, String field){
+     */
+    public
+    @Override
+    String get(String key, String field) {
         return jedis.hget(key, field);
     }
 
 
     /**
      * 返回 key 指定的哈希集中所有的字段和值。返回值中，每个字段名的下一个是它的值，所以返回值的长度是哈希集大小的两倍
-     * */
-    public @Override Object get(String key, Class clazz) throws IllegalAccessException, InstantiationException{
+     */
+    public
+    @Override
+    Object get(String key, Class clazz) throws IllegalAccessException, InstantiationException {
         Map<String, String> data = jedis.hgetAll(key);
         Object result = null;
-        if (data != null && data.size() >= 0){
+        if (data != null && data.size() >= 0) {
             result = clazz.newInstance();
             for (Field field : clazz.getDeclaredFields()) {
                 int mod = field.getModifiers();
                 //static和final必须在实例化的就完成初始化
-                if (Modifier.isStatic(mod) || Modifier.isFinal(mod)){
+                if (Modifier.isStatic(mod) || Modifier.isFinal(mod)) {
                     continue;
                 }
                 field.setAccessible(true);
-                if (field.getType().getSimpleName().equals(Long.class.getSimpleName())){
+                if (field.getType().getSimpleName().equals(Long.class.getSimpleName())) {
                     field.set(result, Long.valueOf(data.get(field.getName())));
-                }else if (field.getType().getSimpleName().equals(Integer.class.getSimpleName())){
+                } else if (field.getType().getSimpleName().equals(Integer.class.getSimpleName())) {
                     field.set(result, Integer.valueOf(data.get(field.getName())));
-                }else {
+                } else {
                     field.set(result, data.get(field.getName()));
                 }
             }
@@ -81,8 +86,10 @@ public class HashClient extends BaseClient {
     /**
      * 增加key指定的哈希集中指定字段的数值。如果key不存在，会创建一个新的哈希集并与key关联。
      * 如果字段不存在，则字段的值在该操作执行前被设置为0
-     * */
-    public @Override long incr(String key, String field){
+     */
+    public
+    @Override
+    long incr(String key, String field) {
         return jedis.hincrBy(key, field, 1l);
     }
 }

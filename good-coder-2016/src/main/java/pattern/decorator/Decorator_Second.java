@@ -5,7 +5,7 @@ package pattern.decorator;
  * @Date 2016/6/7
  */
 public class Decorator_Second extends Decorator {
-    public Decorator_Second(Translator translator){
+    public Decorator_Second(Translator translator) {
         super(translator);
     }
 

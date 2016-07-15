@@ -10,15 +10,8 @@ import java.util.concurrent.Executors;
 public class ThreadNotSafeClass {
     private int view;
 
-    public ThreadNotSafeClass(int view){
+    public ThreadNotSafeClass(int view) {
         this.view = view;
-    }
-
-    public synchronized void addView(){
-        for (int i = 0; i < 10; i++) {
-            view+=i;
-        }
-        System.out.println(view);
     }
 
     public static void main(String[] args) {
@@ -36,5 +29,12 @@ public class ThreadNotSafeClass {
             });
         }
         executorService.shutdown();
+    }
+
+    public synchronized void addView() {
+        for (int i = 0; i < 10; i++) {
+            view += i;
+        }
+        System.out.println(view);
     }
 }

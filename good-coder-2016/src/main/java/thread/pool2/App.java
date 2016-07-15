@@ -1,6 +1,6 @@
 package thread.pool2;
 
-import thread.pool.*;
+import thread.pool.ThreadPool;
 
 /**
  * @author long.yl.

@@ -10,7 +10,38 @@ public class UnitVO {
 
     private List<Unit> list;
 
-    public static class Unit{
+    public static void main(String[] args) {
+        UnitVO vo = new UnitVO();
+        List<Unit> list = new ArrayList<Unit>();
+        list.add(new Unit());
+        list.add(new Unit());
+        list.add(new Unit());
+        list.add(new Unit());
+        vo.setList(list);
+        for (Unit unit : vo.getList()) {
+            System.out.println("aaaaaaaaa");
+        }
+    }
+
+    public List<Unit> getList() {
+        System.out.println("--------");
+        return list;
+    }
+
+    public void setList(List<Unit> list) {
+        this.list = list;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (Unit unit : this.list) {
+            sb.append(unit).append("\n");
+        }
+        return sb.toString();
+    }
+
+    public static class Unit {
         private int id;
         private String imgUrl;
         private String linkUrl;
@@ -46,37 +77,6 @@ public class UnitVO {
                     ", imgUrl='" + imgUrl + '\'' +
                     ", linkUrl='" + linkUrl + '\'' +
                     '}';
-        }
-    }
-
-    public List<Unit> getList() {
-        System.out.println("--------");
-        return list;
-    }
-
-    public void setList(List<Unit> list) {
-        this.list = list;
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        for (Unit unit : this.list) {
-            sb.append(unit).append("\n");
-        }
-        return sb.toString();
-    }
-
-    public static void main(String[] args) {
-        UnitVO vo = new UnitVO();
-        List<Unit> list = new ArrayList<Unit>();
-        list.add(new Unit());
-        list.add(new Unit());
-        list.add(new Unit());
-        list.add(new Unit());
-        vo.setList(list);
-        for (Unit unit : vo.getList()) {
-            System.out.println("aaaaaaaaa");
         }
     }
 }

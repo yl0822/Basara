@@ -24,6 +24,11 @@ public class AIOServer {
                 new InetSocketAddress(PORT));
     }
 
+    public static void main(String args[]) throws Exception {
+//        new AIOServer().startWithCompletionHandler();
+        new AIOServer().startWithFuture();
+    }
+
     public void startWithFuture() throws InterruptedException,
             ExecutionException, TimeoutException {
         System.out.println("Server listen on " + PORT);
@@ -84,10 +89,5 @@ public class AIOServer {
             Thread.sleep(1000);
         }
 
-    }
-
-    public static void main(String args[]) throws Exception {
-//        new AIOServer().startWithCompletionHandler();
-        new AIOServer().startWithFuture();
     }
 }

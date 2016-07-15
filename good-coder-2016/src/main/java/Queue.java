@@ -1,4 +1,3 @@
-import java.util.LinkedHashMap;
 import java.util.LinkedList;
 
 /**
@@ -11,21 +10,21 @@ public class Queue<T> {
 
     private int size;
 
-    public Queue(int capcity){
+    public Queue(int capcity) {
         this.capcity = capcity;
         size = 0;
         queue = new LinkedList<>();
     }
 
-    public void put(T t){
-        if (queue.size() > 100){
+    public void put(T t) {
+        if (queue.size() > 100) {
             return;
         }
         queue.add(t);
     }
 
-    public T get(){
-        if (queue.size() <= 0){
+    public T get() {
+        if (queue.size() <= 0) {
             return null;
         }
         return queue.pop();

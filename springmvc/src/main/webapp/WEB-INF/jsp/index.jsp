@@ -7,8 +7,8 @@
     <title>文章首页</title>
 </head>
 <body>
-    <div>
-        写不来JS了，到此为止吧
-    </div>
+<div>
+    写不来JS了，到此为止吧
+</div>
 </body>
 </html>

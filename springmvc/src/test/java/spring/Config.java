@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class Config {
 
     @Bean(initMethod = "init")
-    public Student student(){
+    public Student student() {
         return new Student("yl0822", 26);
     }
 }

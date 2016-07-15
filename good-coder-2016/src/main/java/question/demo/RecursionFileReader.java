@@ -1,24 +1,23 @@
 package question.demo;
 
 import java.io.*;
-import java.util.HashMap;
 
 /**
  * @author long.yl.
  * @Date 2016/6/21
  */
 public class RecursionFileReader {
-    public static void readFile(File file){
-        if (file.isDirectory()){
-            for (File file1 : file.listFiles()){
+    public static void readFile(File file) {
+        if (file.isDirectory()) {
+            for (File file1 : file.listFiles()) {
                 readFile(file1);
             }
-        }else {
-            System.out.println("Opt file "  + file.getName());
+        } else {
+            System.out.println("Opt file " + file.getName());
         }
     }
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         Reader reader = new InputStreamReader(new FileInputStream(new File("d:\\config")));
         Reader reader1 = new FileReader(new File(""));
 

@@ -8,24 +8,23 @@ import java.io.Serializable;
 
 /**
  * 单元模块数据结构
- * 
- * @author qujinuan
  *
+ * @author qujinuan
  */
 
 @JsonInclude(Include.NON_NULL)
 public class MobileUnitVO implements Serializable {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 3069440877983738355L;
+    /**
+     *
+     */
+    private static final long serialVersionUID = 3069440877983738355L;
 
-	// 单元Id
-	private int unitId;
+    // 单元Id
+    private int unitId;
 
-	// 宽高比
-	private double ratio;
+    // 宽高比
+    private double ratio;
 
     // 单元内的分割线，0不显示；1显示
     private Integer itemDivider;
@@ -40,24 +39,24 @@ public class MobileUnitVO implements Serializable {
     private Integer sidePadding;
 
 
-	// 单元内容数据
-	private JSONObject unitContent;
+    // 单元内容数据
+    private JSONObject unitContent;
 
-	public int getUnitId() {
-		return unitId;
-	}
+    public int getUnitId() {
+        return unitId;
+    }
 
-	public void setUnitId(int unitId) {
-		this.unitId = unitId;
-	}
+    public void setUnitId(int unitId) {
+        this.unitId = unitId;
+    }
 
-	public double getRatio() {
-		return ratio;
-	}
+    public double getRatio() {
+        return ratio;
+    }
 
-	public void setRatio(double ratio) {
-		this.ratio = ratio;
-	}
+    public void setRatio(double ratio) {
+        this.ratio = ratio;
+    }
 
     public Integer getItemDivider() {
         return itemDivider;
@@ -92,10 +91,10 @@ public class MobileUnitVO implements Serializable {
     }
 
     public JSONObject getUnitContent() {
-		return unitContent;
-	 }
-	
-	public void setUnitContent(JSONObject unitContent) {
-		this.unitContent = unitContent;
-	 }
+        return unitContent;
+    }
+
+    public void setUnitContent(JSONObject unitContent) {
+        this.unitContent = unitContent;
+    }
 }

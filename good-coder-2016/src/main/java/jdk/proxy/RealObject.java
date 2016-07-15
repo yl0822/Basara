@@ -6,7 +6,7 @@ package jdk.proxy;
  */
 public class RealObject implements Real {
     @Override
-    public void execute(){
+    public void execute() {
         System.out.println("real object do something ... ");
     }
 }

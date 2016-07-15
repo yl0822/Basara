@@ -27,8 +27,8 @@
     </logger>
 
     <!--<logger name="com.zenointel.algorithm.storage.sql.mapper" level="INFO" additivity="false">-->
-        <!--<appender-ref ref="STDOUT"/>-->
-        <!--<appender-ref ref="FILE"/>-->
+    <!--<appender-ref ref="STDOUT"/>-->
+    <!--<appender-ref ref="FILE"/>-->
     <!--</logger>-->
 
     <root level="INFO">

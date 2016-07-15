@@ -1,7 +1,5 @@
 package thread.pool2;
 
-import thread.pool.Task;
-
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.concurrent.ExecutorService;
@@ -19,15 +17,15 @@ public class ExecutorPool {
 
     private final Queue queue;
 
-    public ExecutorPool(int count){
+    public ExecutorPool(int count) {
         this.count = count;
         service = Executors.newFixedThreadPool(count);
         // Queue的实现都是用LinkedList
         queue = new LinkedList<>();
     }
 
-    public void execute(Runnable runnable){
-        synchronized (queue){
+    public void execute(Runnable runnable) {
+        synchronized (queue) {
             queue.add(runnable);
             queue.notify();
         }
@@ -42,23 +40,23 @@ public class ExecutorPool {
         public void run() {
             Runnable r;
             //保证线程等待中...
-            while (true){
-                synchronized (queue){
-                    while (queue.isEmpty()){
+            while (true) {
+                synchronized (queue) {
+                    while (queue.isEmpty()) {
                         try {
                             queue.wait();
-                        }catch (Exception e){
+                        } catch (Exception e) {
 
                         }
                     }
                     //如果将task.run写在synchronized里面，则会阻塞其他线程继续执行
                     //如果完全放在synchronized外面，则会出现线程安全问题（线程A执行poll之前，线程B进入了非空判断，之后poll被执行导致线程安全问题）
                     //所以这里最好做法是拆分成两部分:在synchronized中将task拿到，放到synchronized外面去执行（poll = remove + run）
-                    r = (Runnable)queue.poll();
+                    r = (Runnable) queue.poll();
                 }
                 try {
                     r.run();
-                }catch (Exception e){
+                } catch (Exception e) {
 
                 }
             }

@@ -1,10 +1,4 @@
-import javax.xml.soap.SAAJResult;
 import java.io.*;
-import java.lang.annotation.Annotation;
-import java.util.*;
-import java.util.concurrent.Executor;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 /**
  * Created by Larry .Yang
@@ -14,19 +8,10 @@ import java.util.concurrent.Executors;
 public class Bootstrap {
     private static int i = 0;
 
-    static class Runner1 implements Runnable{
-        @Override
-        public void run() {
-            while (i < 100){
-                System.out.println(Thread.currentThread().getName() + ":"+i++);
-            }
-        }
-    }
-
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         String path = "d:\\alibaba.txt";
         File file = new File(path);
-        if (!file.exists()){
+        if (!file.exists()) {
             file.createNewFile();
         }
         Writer writer = new BufferedWriter(new FileWriter(file));
@@ -34,7 +19,7 @@ public class Bootstrap {
         writer.flush();
         Reader reader = new BufferedReader(new FileReader(file));
         int temp;
-        if ((temp = reader.read()) != -1){
+        if ((temp = reader.read()) != -1) {
             System.out.println(temp);
         }
         writer.write(++temp);
@@ -42,21 +27,21 @@ public class Bootstrap {
         writer.close();
     }
 
-    public static String revert(int i){
-        if (i == 0){
+    public static String revert(int i) {
+        if (i == 0) {
             return String.valueOf(i);
         }
         int b = 0;
         int sg = 0;
         int temp = 0;
-        while (i / (Math.pow(10, temp++)) > 10){
+        while (i / (Math.pow(10, temp++)) > 10) {
             b++;
         }
         sg = i % 10;
-        return String.valueOf((int)(sg * Math.pow(10, b) + Integer.valueOf((revert(i / 10)))));
+        return String.valueOf((int) (sg * Math.pow(10, b) + Integer.valueOf((revert(i / 10)))));
     }
 
-    private void processFile(File dir){
+    private void processFile(File dir) {
         File[] fs = dir.listFiles();
         for (File file : fs) {
             if (file.isDirectory()) {
@@ -66,9 +51,18 @@ public class Bootstrap {
                 } catch (Exception e) {
                 }
             } else {
-                if (file.getName().contains("[ZERO动漫下载]")){
-                    System.out.println("源文件名称: "+file.getName()+" --> 现文件名称：" + file);
+                if (file.getName().contains("[ZERO动漫下载]")) {
+                    System.out.println("源文件名称: " + file.getName() + " --> 现文件名称：" + file);
                 }
+            }
+        }
+    }
+
+    static class Runner1 implements Runnable {
+        @Override
+        public void run() {
+            while (i < 100) {
+                System.out.println(Thread.currentThread().getName() + ":" + i++);
             }
         }
     }

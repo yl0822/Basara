@@ -14,7 +14,7 @@ public class InvocationHandlerImpl implements InvocationHandler {
 
     Translator translator;
 
-    public InvocationHandlerImpl(Translator translator){
+    public InvocationHandlerImpl(Translator translator) {
         this.translator = translator;
     }
 
