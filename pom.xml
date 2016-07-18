@@ -141,6 +141,13 @@
             <version>2.7.4</version>
         </dependency>
 
+        <!-- quartz-定时任务工具 -->
+        <dependency>
+            <groupId>org.quartz-scheduler</groupId>
+            <artifactId>quartz</artifactId>
+            <version>1.8.6</version>
+        </dependency>
+
 
         <!-- spring -->
         <dependency>
