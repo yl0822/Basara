@@ -45,7 +45,7 @@ public class TaskTest {
     public static class DatePrintJob implements Job {
         @Override
         public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {
-            System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())+ "★★★★★★★★★★★");
+            System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())+ "★★★★★★★★★★");
         }
     }
 }
