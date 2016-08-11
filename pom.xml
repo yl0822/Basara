@@ -210,5 +210,6 @@
         <module>redis</module>
         <module>rabbitmq</module>
         <module>springmvc</module>
+        <module>spring-test</module>
     </modules>
 </project>
