@@ -38,6 +38,7 @@ public class ZKLock {
                         return true;
                     }
                 }
+//                tryLock();
             }
         } catch (Exception e) {
             e.printStackTrace();

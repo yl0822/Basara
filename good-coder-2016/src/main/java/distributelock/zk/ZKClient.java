@@ -65,6 +65,10 @@ public class ZKClient implements Watcher {
         }
     }
 
+    public void delPath(String path){
+//        zookeeper.de
+    }
+
     @Override
     public void process(WatchedEvent event) {
         if (event == null) return;

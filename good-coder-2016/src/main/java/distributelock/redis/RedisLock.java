@@ -1,4 +1,4 @@
-package distributelock;
+package distributelock.redis;
 
 import java.util.Random;
 import java.util.concurrent.ConcurrentMap;
@@ -26,16 +26,6 @@ public class RedisLock implements Lock {
     public RedisLock(String key) {
         this.key = "_LOCK_" + key;
         jedis = new Jedis();
-    }
-
-    public static void main(String[] args) {
-        RedisLock lock = RedisLock.getInstance("abc");
-        lock.lock();
-        try {
-            // todo
-        } finally {
-            lock.unlock();
-        }
     }
 
     public static RedisLock getInstance(String key) {
