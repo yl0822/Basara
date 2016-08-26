@@ -15,7 +15,7 @@ public class TestSemaphore {
 
 		ExecutorService exec = Executors.newCachedThreadPool();
 
-		// 只能5个线程同时访问
+		// 限定同时只能有五个线程执行（所以Semaphore其实可以称为一个限流工具，而CycleBarrier和CountDownLatcher才是并发工具）
 
 		final Semaphore semp = new Semaphore(5);
 
