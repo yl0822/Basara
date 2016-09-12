@@ -1,4 +1,10 @@
+import com.alibaba.fastjson.JSON;
+
 import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Larry .Yang
@@ -6,64 +12,47 @@ import java.io.*;
  * Package: parent_PACKAGE_NAME
  */
 public class Bootstrap {
-    private static int i = 0;
-
     public static void main(String[] args) throws Exception {
-        String path = "d:\\alibaba.txt";
-        File file = new File(path);
-        if (!file.exists()) {
-            file.createNewFile();
-        }
-        Writer writer = new BufferedWriter(new FileWriter(file));
-        writer.write(1);
-        writer.flush();
-        Reader reader = new BufferedReader(new FileReader(file));
-        int temp;
-        if ((temp = reader.read()) != -1) {
-            System.out.println(temp);
-        }
-        writer.write(++temp);
-        writer.flush();
-        writer.close();
+        List<Student> list = new ArrayList<>();
+        list.add(new Student("aaa", 23));
+        list.add(new Student("bbb", 22));
+        list.add(new Student("ccc", 31));
+        list.add(new Student("ddd", 34));
+        Map<String, String> map = new HashMap<>();
+        map.put("aaa", "aaaaaa");
+        map.put("bbb", "bbbbbb");
+        map.put("ccc", "cccccc");
+        map.put("ddd", "dddddd");
+        Map<String, Object> result = new HashMap<>();
+        result.put("result", map);
+        Map<String, Object> result2 = new HashMap<>();
+        result2.put("result", list);
+//        System.out.println(JSON.toJSONString(result));
+        System.out.println(JSON.toJSONString(result2));
+    }
+}
+class Student{
+    private String name;
+    private int age;
+
+    public Student(String name, int age) {
+        this.name = name;
+        this.age = age;
     }
 
-    public static String revert(int i) {
-        if (i == 0) {
-            return String.valueOf(i);
-        }
-        int b = 0;
-        int sg = 0;
-        int temp = 0;
-        while (i / (Math.pow(10, temp++)) > 10) {
-            b++;
-        }
-        sg = i % 10;
-        return String.valueOf((int) (sg * Math.pow(10, b) + Integer.valueOf((revert(i / 10)))));
+    public String getName() {
+        return name;
     }
 
-    private void processFile(File dir) {
-        File[] fs = dir.listFiles();
-        for (File file : fs) {
-            if (file.isDirectory()) {
-                System.out.println("开始遍历文件夹: " + file.getAbsolutePath());
-                try {
-                    processFile(file);
-                } catch (Exception e) {
-                }
-            } else {
-                if (file.getName().contains("[ZERO动漫下载]")) {
-                    System.out.println("源文件名称: " + file.getName() + " --> 现文件名称：" + file);
-                }
-            }
-        }
+    public void setName(String name) {
+        this.name = name;
     }
 
-    static class Runner1 implements Runnable {
-        @Override
-        public void run() {
-            while (i < 100) {
-                System.out.println(Thread.currentThread().getName() + ":" + i++);
-            }
-        }
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
     }
 }
