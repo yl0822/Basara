@@ -1,4 +1,8 @@
-import org.apache.commons.lang3.StringUtils;
+import org.junit.experimental.theories.internal.BooleanSupplier;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by long.yl on 2016/7/11.
@@ -6,12 +10,47 @@ import org.apache.commons.lang3.StringUtils;
 public class App {
 
 	public static void main(String[] args) {
-        System.out.println(StringUtils.isEmpty(null));
-        System.out.println(StringUtils.isEmpty(""));
-        System.out.println(StringUtils.isEmpty("   ".trim()));
+        List<Acer> list = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            Acer acer = new Acer();
+            acer.setAge(i);
+            acer.setName("acer_"+i);
+            list.add(acer);
+        }
+        Acer acer1= (Acer) null;
+        System.out.println(acer1);
+        System.out.println(Arrays.toString(list.toArray()));
+        for (Acer acer : list) {
+            acer.setName(acer.getName() + "_ext");
+        }
+        System.out.println(Arrays.toString(list.toArray()));
+    }
+    static class Acer{
+        private String name;
+        private int age;
 
-        System.out.println(StringUtils.isBlank(null));
-        System.out.println(StringUtils.isBlank(""));
-        System.out.println(StringUtils.isBlank("   "));
+        public int getAge() {
+            return age;
+        }
+
+        public void setAge(int age) {
+            this.age = age;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public String toString() {
+            return "Acer{" +
+                    "name='" + name + '\'' +
+                    ", age=" + age +
+                    '}';
+        }
     }
 }
