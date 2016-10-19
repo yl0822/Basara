@@ -8,7 +8,7 @@ package good.code.manner.enum_annotation_acl;
 @Access(level=CommonIdentifier.Author)
 public class Foo{
     public static void main(String[] args) {
-        // 初始化商业逻辑
+        // 初始化业务逻辑
         Foo b = new Foo();
         // 获取注解
         Access access = b.getClass().getAnnotation(Access.class);

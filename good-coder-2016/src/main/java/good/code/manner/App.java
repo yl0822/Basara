@@ -3,6 +3,7 @@ package good.code.manner;
 
 import good.code.manner.enum_annotation_acl.Access;
 import good.code.manner.enum_annotation_acl.Foo;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Created by long.yl
@@ -11,5 +12,11 @@ import good.code.manner.enum_annotation_acl.Foo;
  */
 public class App {
     public static void main(String[] args) {
+        System.out.println(StringUtils.equals(null, null));
+        System.out.println(StringUtils.equals(null, ""));
+        System.out.println(StringUtils.equals("", null));
+        System.out.println(StringUtils.equals("", ""));
+        System.out.println(StringUtils.equals("", ""));
+        System.out.println(StringUtils.equals("", ""));
     }
 }
