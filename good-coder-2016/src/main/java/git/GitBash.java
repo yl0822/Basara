@@ -1,7 +1,12 @@
 package git;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.eclipse.jgit.lib.*;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
 
@@ -13,6 +18,13 @@ public class GitBash {
 	private static GitBash instance;
 
 	private static Repository repository;
+
+    private static final List<String> WHITELIST_BRANCH;
+
+    static {
+        WHITELIST_BRANCH = new ArrayList<>();
+        WHITELIST_BRANCH.add("master");
+    }
 
 	private GitBash() {
 	}
@@ -49,26 +61,39 @@ public class GitBash {
 	}
 
     // 创建分支
-	public void createBranch(String baseBranchName, String newBranchName) {
+	public boolean createBranch(String baseBranchName, String newBranchName) {
         try {
             Ref baseBranch = repository.getRef(baseBranchName);
+            if (baseBranch == null){
+                throw new IllegalArgumentException("源分支不存在");
+            }
             ObjectId baseBranchObjectId = baseBranch.getObjectId();
-            RefUpdate createBranch = repository.updateRef(newBranchName);
+            RefUpdate createBranch = repository.updateRef("refs/heads/" + newBranchName);
             createBranch.setNewObjectId(baseBranchObjectId);
-            createBranch.update();
+            RefUpdate.Result result = createBranch.update();
+            // 新增:NEW,已经存在:NO_CHANGE
+            return result == RefUpdate.Result.NEW;
         }catch (Exception e){
             e.printStackTrace();
         }
+        return false;
 	}
 
+
     // 删除分支
-	public void deleteBranch(String branchName) {
+	public boolean deleteBranch(String branchName) {
+        if (ArrayUtils.contains(WHITELIST_BRANCH.toArray(), branchName)){
+            throw new IllegalArgumentException("该分支无法删除");
+        }
         try {
-            RefUpdate deleteBranch1 = repository.updateRef(branchName);
-            deleteBranch1.setForceUpdate(true);
-            deleteBranch1.delete();
+            RefUpdate deleteBranch = repository.updateRef("refs/heads/" + branchName);
+            deleteBranch.setForceUpdate(true);
+            RefUpdate.Result result = deleteBranch.delete();
+            // 删除:FORCED
+            return result == RefUpdate.Result.FORCED;
         }catch (Exception e){
             e.printStackTrace();
         }
+        return false;
 	}
 }
