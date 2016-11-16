@@ -37,5 +37,10 @@
             <artifactId>org.eclipse.jgit</artifactId>
             <version>3.5.0.201409260305-r</version>
         </dependency>
+        <dependency>
+            <groupId>org.easymock</groupId>
+            <artifactId>easymock</artifactId>
+            <version>3.4</version>
+        </dependency>
     </dependencies>
 </project>
