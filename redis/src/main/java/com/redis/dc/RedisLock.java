@@ -24,7 +24,7 @@ public class RedisLock implements Lock {
 
     public RedisLock(String key) {
         this.key = "_LOCK_" + key;
-        jedis = new Jedis();
+        jedis = new Jedis("127.0.0.1", 6379);
     }
 
     public static void main(String[] args) {

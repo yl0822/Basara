@@ -1,4 +1,8 @@
+import com.alibaba.dubbo.common.utils.CollectionUtils;
 import com.alibaba.fastjson.JSON;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.LineIterator;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -11,14 +15,42 @@ import java.util.*;
  */
 public class Bootstrap {
     public static void main(String[] args) throws Exception {
-        Calendar calendar = Calendar.getInstance();
-        // 保留一个月
-        calendar.add(Calendar.DATE, -30);
-        String time1 = new SimpleDateFormat("yyyy-MM-dd 00:00:00").format(calendar.getTime());
-        calendar.add(Calendar.DATE, 1);
-        String time2 = new SimpleDateFormat("yyyy-MM-dd 00:00:00").format(calendar.getTime());
-        String sql = "SELECT Id FROM Musician_SongAudit where db_create_time < '"+time2+"' and db_create_time > '" + time1 +"'";
-        System.out.println(sql);
+        File file = new File("C:\\Users\\long.yl\\Desktop\\aaa");
+        File file2 = new File("F:\\git\\mainserver\\target\\Musician-1.0.0\\WEB-INF\\lib");
+        System.out.println("jar file length : " + file2.listFiles().length);
+        LineIterator it = null;
+        try {
+            it = FileUtils.lineIterator(file, "UTF-8");
+            List<String> list = new ArrayList<>();
+            while (it.hasNext()) {
+                String line = it.nextLine();
+                list.add(line);
+            }
+            List<String> newlist = new ArrayList<>(list);
+            System.out.println("before ----------- : size: " +newlist.size());
+            for (String s : newlist) {
+                System.out.println(s);
+            }
+            int count = 0;
+            for (String line : list) {
+                for (File file1 : file2.listFiles()) {
+                    String filename = file1.getName().substring(0, file1.getName().lastIndexOf("."));
+                    if (line.contains(filename)){
+                        System.out.println("jar file name : "+ filename + "------------ maven file name : " + line);
+                        newlist.remove(line);
+                        count++;
+                        break;
+                    }
+                }
+            }
+            System.out.println("count: "+count );
+            System.out.println("after ----------- :: size: " +newlist.size());
+            for (String s : newlist) {
+                System.out.println(s);
+            }
+        }catch (Exception e){
+
+        }
     }
 }
 

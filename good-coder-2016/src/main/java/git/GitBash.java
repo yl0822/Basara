@@ -7,8 +7,14 @@ import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.lang3.ArrayUtils;
+import org.eclipse.jgit.api.Git;
+import org.eclipse.jgit.diff.DiffEntry;
 import org.eclipse.jgit.lib.*;
+import org.eclipse.jgit.revwalk.RevCommit;
+import org.eclipse.jgit.revwalk.RevTree;
+import org.eclipse.jgit.revwalk.RevWalk;
 import org.eclipse.jgit.storage.file.FileRepositoryBuilder;
+import org.eclipse.jgit.treewalk.CanonicalTreeParser;
 
 /**
  * Created by long.yl Created in 2016/11/1 Created on Basara_git
@@ -96,4 +102,56 @@ public class GitBash {
         }
         return false;
 	}
+
+    public void diff(String branchName){
+        try {
+            ObjectId oldHead = repository.resolve("HEAD^^^^{tree}");
+            ObjectId head = repository.resolve("HEAD^{tree}");
+            System.out.println("Printing diff between tree: " + oldHead + " and " + head);
+            ObjectReader reader = repository.newObjectReader();
+            CanonicalTreeParser oldTreeIter = new CanonicalTreeParser();
+            oldTreeIter.reset(reader, oldHead);
+            CanonicalTreeParser newTreeIter = new CanonicalTreeParser();
+            newTreeIter.reset(reader, head);
+
+            // finally get the list of changed files
+            Git git = new Git(repository);
+            List<DiffEntry> diffs= git.diff()
+                    .setNewTree(newTreeIter)
+                    .setOldTree(oldTreeIter)
+                    .call();
+            for (DiffEntry entry : diffs) {
+                System.out.println("Entry: " + entry);
+            }
+        }catch (Exception e){
+
+        }
+        System.out.println("Done");
+    }
+
+    public void load(){
+        try {
+
+            Ref head = repository.exactRef("refs/heads/master");
+            System.out.println("Ref of refs/heads/master: " + head);
+
+            System.out.println("\nPrint contents of head of master branch, i.e. the latest commit information");
+            ObjectLoader loader = repository.open(head.getObjectId());
+            loader.copyTo(System.out);
+
+            System.out.println("\nPrint contents of tree of head of master branch, i.e. the latest binary tree information");
+
+            // a commit points to a tree
+            RevWalk walk = new RevWalk(repository);
+            RevCommit commit = walk.parseCommit(head.getObjectId());
+            RevTree tree = walk.parseTree(commit.getTree().getId());
+            System.out.println("Found Tree: " + tree);
+            loader = repository.open(tree.getId());
+            loader.copyTo(System.out);
+
+            walk.dispose();
+        }catch (Exception e){
+
+        }
+    }
 }

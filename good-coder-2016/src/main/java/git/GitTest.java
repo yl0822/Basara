@@ -42,4 +42,15 @@ public class GitTest {
         bash.deleteBranch("master");
     }
 
+    @Test
+    public void diff(){
+        // 创建分支
+        bash.diff("master");
+    }
+
+    @Test
+    public void load(){
+        // 创建分支
+        bash.load();
+    }
 }
