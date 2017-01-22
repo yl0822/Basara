@@ -1,12 +1,9 @@
-import com.alibaba.dubbo.common.utils.CollectionUtils;
-import com.alibaba.fastjson.JSON;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
-import org.apache.commons.lang3.builder.ToStringBuilder;
-
-import java.io.*;
-import java.text.SimpleDateFormat;
-import java.util.*;
 
 /**
  * Created by Larry .Yang
@@ -35,6 +32,7 @@ public class Bootstrap {
             for (String line : list) {
                 for (File file1 : file2.listFiles()) {
                     String filename = file1.getName().substring(0, file1.getName().lastIndexOf("."));
+					filename = filename.substring(0, filename.lastIndexOf("-"));
                     if (line.contains(filename)){
                         System.out.println("jar file name : "+ filename + "------------ maven file name : " + line);
                         newlist.remove(line);
