@@ -15,7 +15,7 @@
         <mybatis.version>3.2.7</mybatis.version>
         <servlet.version>7.0.55</servlet.version>
         <spring.version>4.1.7.RELEASE</spring.version>
-        <jdbc.version>5.1.32</jdbc.version>
+        <jdbc.version>8.0.16</jdbc.version>
     </properties>
 
     <dependencies>
